@@ -1,6 +1,6 @@
-package XML_ConcreteElements;
+package XML_Elements.XML_ConcreteElements;
 
-import XML_BaseElements.BaseMiddleNote;
+import XML_Elements.XML_BaseElements.BaseMiddleNote;
 
 public class PersonNote extends BaseMiddleNote {
 

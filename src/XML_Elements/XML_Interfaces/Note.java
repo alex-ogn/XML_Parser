@@ -1,6 +1,4 @@
-package XML_Interfaces;
-
-import java.util.List;
+package XML_Elements.XML_Interfaces;
 
 public interface Note<T> {
     String getName();

@@ -1,5 +1,5 @@
-package XML_BaseElements;
-import XML_Interfaces.Note;
+package XML_Elements.XML_BaseElements;
+import XML_Elements.XML_Interfaces.Note;
 
 
 public abstract class BaseLeafNote<T> implements Note<T> {

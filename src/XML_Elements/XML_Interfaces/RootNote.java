@@ -1,4 +1,4 @@
-package XML_Interfaces;
+package XML_Elements.XML_Interfaces;
 
 public interface RootNote extends Note
 {

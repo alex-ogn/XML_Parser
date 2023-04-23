@@ -1,12 +1,12 @@
-package XML_BaseElements;
+package XML_Elements.XML_BaseElements;
 
-import XML_Interfaces.MiddleNote;
-import XML_Interfaces.Note;
+import XML_Elements.XML_Interfaces.MiddleNote;
+import XML_Elements.XML_Interfaces.Note;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class BaseMiddleNote implements MiddleNote {
+public abstract class BaseMiddleNote implements MiddleNote {
 
     private String name;
     List<Note> childNotes;
