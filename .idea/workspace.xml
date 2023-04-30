@@ -1,21 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0c6ac7da-25ef-46bc-804c-348ac6807340" name="Changes" comment="Create">
-      <change afterPath="$PROJECT_DIR$/src/XML_Printers/XMLBasePrinter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/XML_Printers/XMLConsolePrinter.java" afterDir="false" />
+    <list default="true" id="0c6ac7da-25ef-46bc-804c-348ac6807340" name="Changes" comment="Create XML Printers">
+      <change afterPath="$PROJECT_DIR$/src/MenuHandlers/BaseMenu/Menu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MenuHandlers/XML_ParserMenuElements/XML_ParserMenu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MenuHandlers/XML_ParserMenuElements/XML_ParserMenuChoiceHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MenuHandlers/XML_ParserMenuElements/XML_ParserMenuItems.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/XML_BaseElements/BaseLeafNote.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/XML_Elements/XML_BaseElements/BaseLeafNote.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/XML_BaseElements/BaseMiddleNote.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/XML_Elements/XML_BaseElements/BaseMiddleNote.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/XML_ConcreteElements/NameNote.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/XML_Elements/XML_ConcreteElements/NameNote.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/XML_ConcreteElements/PersonNote.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/XML_Elements/XML_ConcreteElements/PersonNote.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/XML_Interfaces/Attribute.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/XML_Elements/XML_Interfaces/Attribute.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/XML_Interfaces/AttributesSupporter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/XML_Elements/XML_Interfaces/AttributesSupporter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/XML_Interfaces/MiddleNote.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/XML_Elements/XML_Interfaces/MiddleNote.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/XML_Interfaces/Note.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/XML_Elements/XML_Interfaces/Note.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/XML_Interfaces/RootNote.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/XML_Elements/XML_Interfaces/RootNote.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/XML_Interfaces/TextNote.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/XML_Elements/XML_Interfaces/TextNote.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/XML_Elements/XML_BaseElements/BaseMiddleNote.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/XML_Elements/XML_BaseElements/BaseMiddleNote.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/XML_Elements/XML_ConcreteElements/NameNote.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/XML_Elements/XML_ConcreteElements/NameNote.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +20,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -88,7 +83,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679220595492</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Create XML Printers">
+      <created>1682263691335</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1682263691335</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -104,6 +106,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Create" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create" />
+    <MESSAGE value="Create XML Printers" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create XML Printers" />
   </component>
 </project>

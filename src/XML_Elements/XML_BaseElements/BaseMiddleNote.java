@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class BaseMiddleNote implements MiddleNote {
-
     private String name;
     List<Note> childNotes;
 
