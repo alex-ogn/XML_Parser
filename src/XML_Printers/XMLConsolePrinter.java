@@ -8,12 +8,12 @@ public class XMLConsolePrinter extends XMLBasePrinter
     }
 
     @Override
-    protected void PrintString(String str) {
+    protected void printString(String str) {
         System.out.print(str);
     }
 
     @Override
-    protected void PrintStringln(String str) {
+    protected void printStringNewLine(String str) {
         System.out.println(str);
     }
 }

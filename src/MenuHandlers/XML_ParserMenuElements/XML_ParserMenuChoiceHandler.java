@@ -1,39 +1,46 @@
 package MenuHandlers.XML_ParserMenuElements;
+import XML_FIleManagers.PeopleXML_FileManager;
+import java.util.Scanner;
 
 public class XML_ParserMenuChoiceHandler
 {
-    public void HandleChoice(XML_ParserMenuItems menuItem)
+    public void handleChoice(XML_ParserMenuItems menuItem)
     {
         switch (menuItem)
         {
+            case OPEN:
+            {
+                onOpen();
+                break;
+            }
             case CLOSE:
             {
-                System.out.println(menuItem.getName());
+                onClose();
                 break;
             }
             case SAVE:
             {
-                System.out.println(menuItem.getName());
+                onSave();
                 break;
             }
             case SAVE_AS:
             {
-                System.out.println(menuItem.getName());
+                onSaveAs();
                 break;
             }
             case HELP:
             {
-                System.out.println(menuItem.getName());
+                onHelp();
                 break;
             }
             case EXIT:
             {
-                OnExit();
+                onExit();
                 break;
             }
             case TO_MAIN_MENU:
             {
-                System.out.println(menuItem.getName());
+                onToMainMenu();
                 break;
             }
             default:
@@ -43,8 +50,53 @@ public class XML_ParserMenuChoiceHandler
         }
     }
 
-    private void OnExit()
+    private void onExit()
     {
         System.exit(0);
+    }
+    private void onOpen()
+    {
+        Scanner input = new Scanner( System.in );
+        System.out.println("Enter file location: ");
+        String filePath = input.toString();
+
+        PeopleXML_FileManager fileManager = PeopleXML_FileManager.getInstance();
+        if(fileManager.openFile(filePath))
+            System.out.println("Successfully opened file.");
+
+    }
+    private void onClose()
+    {
+        PeopleXML_FileManager fileManager = PeopleXML_FileManager.getInstance();
+        if(fileManager.closeFile())
+            System.out.println("Successfully closed file.");
+
+    }
+    private void onSave()
+    {
+        PeopleXML_FileManager fileManager = PeopleXML_FileManager.getInstance();
+        if(fileManager.saveFile())
+            System.out.println("Successfully saved file.");
+    }
+    private void onSaveAs()
+    {
+        Scanner input = new Scanner( System.in );
+        System.out.println("Enter new file location: ");
+        String filePath = input.toString();
+
+        PeopleXML_FileManager fileManager = PeopleXML_FileManager.getInstance();
+        if(fileManager.saveAsFile(filePath))
+            System.out.println("Successfully saved file.");
+    }
+    private void onHelp()
+    {
+        for (XML_ParserMenuItems menuItem : XML_ParserMenuItems.values()) {
+            if (!menuItem.getDescription().isEmpty())
+                System.out.println("\t" + menuItem.getName() + " - " + menuItem.getDescription());
+        }
+    }
+    private void onToMainMenu()
+    {
+       // don't need to do anything
     }
 }

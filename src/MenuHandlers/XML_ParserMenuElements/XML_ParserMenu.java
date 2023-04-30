@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class XML_ParserMenu implements Menu {
-    List<XML_ParserMenuItems> menuItems;
+    private List<XML_ParserMenuItems> menuItems;
 
     public XML_ParserMenu(List<XML_ParserMenuItems> menuItems) {
         this.menuItems = menuItems;
@@ -39,7 +39,7 @@ public class XML_ParserMenu implements Menu {
     void onMenuItem(XML_ParserMenuItems menuItem)
     {
         XML_ParserMenuChoiceHandler choiceHandler = new XML_ParserMenuChoiceHandler();
-        choiceHandler.HandleChoice(menuItem);
+        choiceHandler.handleChoice(menuItem);
     }
 
 }
