@@ -3,10 +3,10 @@ package XML_Elements.XML_ConcreteElements;
 import XML_Elements.Mapping.XML_ElementsTypes;
 import XML_Elements.XML_BaseElements.BaseMiddleNote;
 
-public class PeopleNote extends BaseMiddleNote {
+public class AddressNote extends BaseMiddleNote {
 
-    public PeopleNote() {
-        super(XML_ElementsTypes.people);
+    public AddressNote() {
+        super(XML_ElementsTypes.address);
     }
 
     @Override
@@ -15,7 +15,8 @@ public class PeopleNote extends BaseMiddleNote {
         boolean supportChild = false;
         switch (elementType)
         {
-            case person:
+            case city:
+            case country:
             {
                 supportChild = true;
                 break;
@@ -25,3 +26,4 @@ public class PeopleNote extends BaseMiddleNote {
         return supportChild;
     }
 }
+

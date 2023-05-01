@@ -1,36 +1,40 @@
 
-import MenuHandlers.BaseMenu.Menu;
 import MenuHandlers.XML_ParserMenuElements.XML_ParserMainMenuInitializer;
-import MenuHandlers.XML_ParserMenuElements.XML_ParserMenu;
-import MenuHandlers.XML_ParserMenuElements.XML_ParserMenuItems;
-import XML_Elements.XML_ConcreteElements.NameNote;
-import XML_Elements.XML_ConcreteElements.PersonNote;
+
+import XML_Elements.XML_ConcreteElements.*;
 import XML_Printers.XMLBasePrinter;
 import XML_Printers.XMLConsolePrinter;
 import XML_Printers.XMLFilePrinter;
-
-import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world!");
 
-        //PersonNote personNote = new PersonNote();
-        //NameNote nameNote = new NameNote("Alex");
-        //NameNote nameNote2 = new NameNote("Alex2");
-        //personNote.addChild(nameNote);
-        //personNote.addChild(nameNote2);
+        PersonNote personNote = new PersonNote();
+        NameNote nameNote = new NameNote("Alex");
+        NameNote nameNote2 = new NameNote("Alex2");
+        personNote.addChild(nameNote);
+        personNote.addChild(nameNote2);
+
+        AddressNote addressNote = new AddressNote();
+        addressNote.addChild(new CountryNote("some country"));
+        addressNote.addChild(new CityNote("some city"));
+        personNote.addChild(addressNote);
+
+        PeopleNote peopleNote = new PeopleNote();
+        peopleNote.addChild(personNote);
+        peopleNote.addChild(personNote);
 //
-        //XMLBasePrinter printer = new XMLConsolePrinter(personNote);
-        //XMLFilePrinter filePrinter = new XMLFilePrinter(personNote, "C:\\Users\\Alex\\Desktop\\Уни\\2 година\\2 Семестър\\ООП\\KP\\XML Parser\\text.xml");
-        //try {
-        //    printer.print();
-        //    filePrinter.print();
-        //}
-        //catch (Exception e)
-        //{
-        //    System.out.print(e);
-        //}
+        XMLBasePrinter printer = new XMLConsolePrinter(peopleNote);
+        XMLFilePrinter filePrinter = new XMLFilePrinter(peopleNote, "C:\\Users\\Alex\\Desktop\\Уни\\2 година\\2 Семестър\\ООП\\KP\\XML Parser\\text.xml");
+        try {
+            printer.print();
+            filePrinter.print();
+        }
+        catch (Exception e)
+        {
+            System.out.print(e);
+        }
 
         XML_ParserMainMenuInitializer.Initialize();
 
