@@ -1,25 +1,25 @@
 package XML_FIleManagers;
 
-import XML_Elements.XML_ConcreteElements.PeopleNote;
+import XML_Elements.XML_ConcreteElements.PeopleNode;
 
-public class PeopleXML_FileManager extends XML_FileManager<PeopleNote>
+public class PeopleXML_FileManager extends XML_FileManager<PeopleNode>
 {
     private static PeopleXML_FileManager fileManager;
 
-    private PeopleXML_FileManager(PeopleNote startNote) {
-        super(startNote);
+    private PeopleXML_FileManager(PeopleNode startNode) {
+        super(startNode);
     }
 
     public static PeopleXML_FileManager getInstance()
     {
         if (fileManager == null)
-            fileManager = new PeopleXML_FileManager(new PeopleNote());
+            fileManager = new PeopleXML_FileManager(new PeopleNode());
 
         return fileManager;
     }
 
     @Override
-    protected PeopleNote getNewStartNote() {
-        return new PeopleNote();
+    protected PeopleNode getNewStartNode() {
+        return new PeopleNode();
     }
 }

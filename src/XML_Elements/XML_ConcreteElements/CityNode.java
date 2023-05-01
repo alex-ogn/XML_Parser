@@ -1,14 +1,14 @@
 package XML_Elements.XML_ConcreteElements;
 
 import XML_Elements.Mapping.XML_ElementsTypes;
-import XML_Elements.XML_BaseElements.BaseLeafNote;
+import XML_Elements.XML_BaseElements.BaseLeafNode;
 
-public class CityNote extends BaseLeafNote<String> {
-    public CityNote() {
+public class CityNode extends BaseLeafNode<String> {
+    public CityNode() {
         super(XML_ElementsTypes.city);
     }
 
-    public CityNote(String value) {
+    public CityNode(String value) {
         super(XML_ElementsTypes.city, value);
     }
 }

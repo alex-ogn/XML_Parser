@@ -1,23 +1,23 @@
 package XML_Printers;
-import XML_Elements.XML_BaseElements.BaseLeafNote;
-import XML_Elements.XML_BaseElements.BaseMiddleNote;
-import XML_Elements.XML_Interfaces.Note;
+import XML_Elements.XML_BaseElements.BaseLeafNode;
+import XML_Elements.XML_BaseElements.BaseMiddleNode;
+import XML_Elements.XML_Interfaces.Node;
 
 import java.util.List;
 
 public abstract class XMLBasePrinter
 {
-    private BaseMiddleNote baseMiddleNote;
+    private BaseMiddleNode baseMiddleNode;
 
-    public XMLBasePrinter(BaseMiddleNote baseMiddleNote)
+    public XMLBasePrinter(BaseMiddleNode baseMiddleNode)
     {
-        this.baseMiddleNote = baseMiddleNote;
+        this.baseMiddleNode = baseMiddleNode;
     }
     public boolean print()
     {
         try {
             beforePrint();
-            printMiddleNote(baseMiddleNote, 0);
+            printMiddleNode(baseMiddleNode, 0);
             afterPrint();
         }
         catch (Exception e)
@@ -41,40 +41,40 @@ public abstract class XMLBasePrinter
 
     protected abstract void printString(String str) throws Exception;
     protected abstract void printStringNewLine(String str) throws Exception;
-    private void printMiddleNote(BaseMiddleNote baseMiddleNote, int countDept) throws Exception
+    private void printMiddleNode(BaseMiddleNode baseMiddleNode, int countDept) throws Exception
     {
         String tap = "\t";
         String taps = tap.repeat(countDept);
 
-        printStringNewLine(taps + "<" + baseMiddleNote.getName() + ">");
+        printStringNewLine(taps + "<" + baseMiddleNode.getName() + ">");
 
-        List<Note> list =  baseMiddleNote.getValue();
+        List<Node> list =  baseMiddleNode.getValue();
 
         for (int i = 0; i < list.size(); i++)
         {
-            Note note = list.get(i);
-            if (note instanceof BaseMiddleNote)
+            Node node = list.get(i);
+            if (node instanceof BaseMiddleNode)
             {
-                printMiddleNote((BaseMiddleNote)note, countDept + 1);
+                printMiddleNode((BaseMiddleNode) node, countDept + 1);
             }
-            else if(note instanceof BaseLeafNote)
+            else if(node instanceof BaseLeafNode)
             {
-                printLeafNote((BaseLeafNote)note, countDept + 1);
+                printLeafNode((BaseLeafNode) node, countDept + 1);
             }
         }
 
-        printStringNewLine(taps + "</" + baseMiddleNote.getName() + ">");
+        printStringNewLine(taps + "</" + baseMiddleNode.getName() + ">");
     }
 
-    private void printLeafNote(BaseLeafNote baseLeafNote, int countDept) throws Exception
+    private void printLeafNode(BaseLeafNode baseLeafNode, int countDept) throws Exception
     {
         String tap = "\t";
         String taps = tap.repeat(countDept);
 
-        printString(taps + "<" + baseLeafNote.getName() + ">");
+        printString(taps + "<" + baseLeafNode.getName() + ">");
 
-        printString(baseLeafNote.getValue().toString());
+        printString(baseLeafNode.getValue().toString());
 
-        printStringNewLine("</" + baseLeafNote.getName() + ">");
+        printStringNewLine("</" + baseLeafNode.getName() + ">");
     }
 }

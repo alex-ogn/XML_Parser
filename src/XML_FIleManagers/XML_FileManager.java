@@ -1,21 +1,21 @@
 package XML_FIleManagers;
-import XML_Elements.XML_BaseElements.BaseMiddleNote;
+import XML_Elements.XML_BaseElements.BaseMiddleNode;
 import XML_Printers.XMLFilePrinter;
 
-public abstract class XML_FileManager<T extends BaseMiddleNote>
+public abstract class XML_FileManager<T extends BaseMiddleNode>
 {
     private boolean isFileOpen;
     private String filePath;
-    private T startNote;
+    private T startNode;
 
-    protected XML_FileManager(T startNote)
+    protected XML_FileManager(T startNode)
     {
         isFileOpen = false;
         filePath = "";
-        this.startNote = startNote;
+        this.startNode = startNode;
     }
 
-    protected abstract T getNewStartNote();
+    protected abstract T getNewStartNode();
 
     public boolean openFile(String filePath)
     {
@@ -40,7 +40,7 @@ public abstract class XML_FileManager<T extends BaseMiddleNote>
             return false;
         }
 
-        startNote = getNewStartNote();
+        startNode = getNewStartNode();
         isFileOpen = false;
         this.filePath = "";
 
@@ -55,7 +55,7 @@ public abstract class XML_FileManager<T extends BaseMiddleNote>
             return false;
         }
 
-        XMLFilePrinter filePrinter = new XMLFilePrinter(startNote, filePath);
+        XMLFilePrinter filePrinter = new XMLFilePrinter(startNode, filePath);
         if(!filePrinter.print())
             return false;
 
@@ -70,7 +70,7 @@ public abstract class XML_FileManager<T extends BaseMiddleNote>
             return false;
         }
 
-        XMLFilePrinter filePrinter = new XMLFilePrinter(startNote, newFilePath);
+        XMLFilePrinter filePrinter = new XMLFilePrinter(startNode, newFilePath);
         if(!filePrinter.print())
             return false;
 

@@ -1,11 +1,11 @@
 package XML_Elements.XML_ConcreteElements;
 
 import XML_Elements.Mapping.XML_ElementsTypes;
-import XML_Elements.XML_BaseElements.BaseMiddleNote;
+import XML_Elements.XML_BaseElements.BaseMiddleNode;
 
-public class PersonNote extends BaseMiddleNote {
+public class PersonNode extends BaseMiddleNode {
 
-    public PersonNote() {
+    public PersonNode() {
         super(XML_ElementsTypes.person);
     }
 

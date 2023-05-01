@@ -1,5 +1,5 @@
 package XML_Elements.XML_Interfaces;
 
-public interface TextNote<T> {
+public interface TextNode<T> {
     T getText();
 }

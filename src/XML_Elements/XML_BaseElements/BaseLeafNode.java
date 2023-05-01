@@ -1,16 +1,16 @@
 package XML_Elements.XML_BaseElements;
 import XML_Elements.Mapping.XML_ElementsTypes;
-import XML_Elements.XML_Interfaces.Note;
+import XML_Elements.XML_Interfaces.Node;
 
 
-public abstract class BaseLeafNote<T> implements Note<T> {
+public abstract class BaseLeafNode<T> implements Node<T> {
     private XML_ElementsTypes type;
     private T value;
 
-    public BaseLeafNote(XML_ElementsTypes type) {
+    public BaseLeafNode(XML_ElementsTypes type) {
         this.type = type;
     }
-    public BaseLeafNote(XML_ElementsTypes type, T value) {
+    public BaseLeafNode(XML_ElementsTypes type, T value) {
         this.type = type;
         this.value = value;
     }

@@ -1,14 +1,14 @@
 package XML_Elements.XML_ConcreteElements;
 
 import XML_Elements.Mapping.XML_ElementsTypes;
-import XML_Elements.XML_BaseElements.BaseLeafNote;
+import XML_Elements.XML_BaseElements.BaseLeafNode;
 
-public class CountryNote extends BaseLeafNote<String> {
-    public CountryNote() {
+public class CountryNode extends BaseLeafNode<String> {
+    public CountryNode() {
         super(XML_ElementsTypes.country);
     }
 
-    public CountryNote(String value) {
+    public CountryNode(String value) {
         super(XML_ElementsTypes.country, value);
     }
 }

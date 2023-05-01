@@ -10,23 +10,23 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world!");
 
-        PersonNote personNote = new PersonNote();
-        NameNote nameNote = new NameNote("Alex");
-        NameNote nameNote2 = new NameNote("Alex2");
-        personNote.addChild(nameNote);
-        personNote.addChild(nameNote2);
+        PersonNode personNode = new PersonNode();
+        NameNode nameNode = new NameNode("Alex");
+        NameNode nameNode2 = new NameNode("Alex2");
+        personNode.addChild(nameNode);
+        personNode.addChild(nameNode2);
 
-        AddressNote addressNote = new AddressNote();
-        addressNote.addChild(new CountryNote("some country"));
-        addressNote.addChild(new CityNote("some city"));
-        personNote.addChild(addressNote);
+        AddressNode addressNode = new AddressNode();
+        addressNode.addChild(new CountryNode("some country"));
+        addressNode.addChild(new CityNode("some city"));
+        personNode.addChild(addressNode);
 
-        PeopleNote peopleNote = new PeopleNote();
-        peopleNote.addChild(personNote);
-        peopleNote.addChild(personNote);
+        PeopleNode peopleNode = new PeopleNode();
+        peopleNode.addChild(personNode);
+        peopleNode.addChild(personNode);
 //
-        XMLBasePrinter printer = new XMLConsolePrinter(peopleNote);
-        XMLFilePrinter filePrinter = new XMLFilePrinter(peopleNote, "C:\\Users\\Alex\\Desktop\\Уни\\2 година\\2 Семестър\\ООП\\KP\\XML Parser\\text.xml");
+        XMLBasePrinter printer = new XMLConsolePrinter(peopleNode);
+        XMLFilePrinter filePrinter = new XMLFilePrinter(peopleNode, "C:\\Users\\Alex\\Desktop\\Уни\\2 година\\2 Семестър\\ООП\\KP\\XML Parser\\text.xml");
         try {
             printer.print();
             filePrinter.print();

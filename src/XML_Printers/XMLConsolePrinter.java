@@ -1,10 +1,10 @@
 package XML_Printers;
-import XML_Elements.XML_BaseElements.BaseMiddleNote;
+import XML_Elements.XML_BaseElements.BaseMiddleNode;
 
 public class XMLConsolePrinter extends XMLBasePrinter
 {
-    public XMLConsolePrinter(BaseMiddleNote baseMiddleNote) {
-        super(baseMiddleNote);
+    public XMLConsolePrinter(BaseMiddleNode baseMiddleNode) {
+        super(baseMiddleNode);
     }
 
     @Override
