@@ -48,7 +48,7 @@ public class Main {
     {
 
         PeopleNode peopleNode = new PeopleNode();
-        String xml = " <people> <person> <name> Alex </name> </person> </people> ";
+        String xml = " <people> <person> <name> Alex2 </name> </person> <person> <name> Ivan </name> </person> </people> ";
 
         XML_Parser parser = new XML_Parser(xml, peopleNode);
         XMLBasePrinter printer = new XMLConsolePrinter(peopleNode);

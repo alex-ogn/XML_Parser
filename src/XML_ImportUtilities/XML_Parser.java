@@ -49,14 +49,17 @@ public class XML_Parser
             {
                 BaseMiddleNode childMiddleNode = (BaseMiddleNode)node;
                 ParseXML(childMiddleNode, trimmedXML);
-                // to do - add delete
             }
             else if(node instanceof BaseLeafNode)
             {
                 BaseLeafNode childLeafNode = (BaseLeafNode)node;
                 ParseXML(childLeafNode, trimmedXML);
-                // to do - add delete
             }
+
+            trimmedXML = XML_ElementsStringSplitter.TrimFirstNodeOfType(trimmedXML, elementChild);
+            trimmedXML = trimmedXML.trim();
+
+            middleNode.addChild(node);
         }
     }
 

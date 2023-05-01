@@ -1,22 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0c6ac7da-25ef-46bc-804c-348ac6807340" name="Changes" comment="Renaming to &quot;Node&quot;">
-      <change afterPath="$PROJECT_DIR$/src/XML_ImportUtilities/XML_ElementsStringSplitter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/XML_ImportUtilities/XML_Parser.java" afterDir="false" />
+    <list default="true" id="0c6ac7da-25ef-46bc-804c-348ac6807340" name="Changes" comment="First steps to Xml Parser class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MenuHandlers/XML_ParserMenuElements/XML_ParserMainMenuInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MenuHandlers/XML_ParserMenuElements/XML_ParserMainMenuInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/XML_Elements/Mapping/XML_ElementsTypesFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/XML_Elements/Mapping/XML_ElementsTypesFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/XML_Elements/XML_BaseElements/BaseLeafNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/XML_Elements/XML_BaseElements/BaseLeafNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/XML_Elements/XML_BaseElements/BaseMiddleNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/XML_Elements/XML_BaseElements/BaseMiddleNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/XML_Elements/XML_ConcreteElements/AddressNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/XML_Elements/XML_ConcreteElements/AddressNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/XML_Elements/XML_ConcreteElements/CityNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/XML_Elements/XML_ConcreteElements/CityNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/XML_Elements/XML_ConcreteElements/CountryNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/XML_Elements/XML_ConcreteElements/CountryNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/XML_Elements/XML_ConcreteElements/NameNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/XML_Elements/XML_ConcreteElements/NameNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/XML_Elements/XML_ConcreteElements/PeopleNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/XML_Elements/XML_ConcreteElements/PeopleNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/XML_Elements/XML_ConcreteElements/PersonNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/XML_Elements/XML_ConcreteElements/PersonNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/XML_FIleManagers/XML_FileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/XML_FIleManagers/XML_FileManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/XML_ImportUtilities/XML_ElementsStringSplitter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/XML_ImportUtilities/XML_ElementsStringSplitter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/XML_ImportUtilities/XML_Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/XML_ImportUtilities/XML_Parser.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,7 +121,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682930095388</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="First steps to Xml Parser class">
+      <created>1682950674329</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1682950674329</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -153,20 +149,21 @@
     <MESSAGE value="Create file manager and refactoring" />
     <MESSAGE value="Create more xml elements" />
     <MESSAGE value="Renaming to &quot;Node&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Renaming to &quot;Node&quot;" />
+    <MESSAGE value="First steps to Xml Parser class" />
+    <option name="LAST_COMMIT_MESSAGE" value="First steps to Xml Parser class" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/XML_ImportUtilities/XML_Parser.java</url>
-          <line>64</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Main.java</url>
           <line>60</line>
           <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/XML_ImportUtilities/XML_Parser.java</url>
+          <line>33</line>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -33,6 +33,16 @@ public class XML_ElementsStringSplitter
         throw new Exception("XML element " + nodeName + " isn't found");
     }
 
+    public static String TrimFirstNodeOfType(String xml, XML_ElementsTypes elementType) throws Exception
+    {
+        int startIndex = xml.indexOf(startTagBegining + elementType.name());
+        int endIndex = xml.indexOf(getEndTag(elementType)) + getEndTag(elementType).length();
+
+        String trimmedXML = xml.substring(0, startIndex) + xml.substring(endIndex);
+
+        return trimmedXML;
+    }
+
     public static String TrimBeginAndEndTag(String xml, XML_ElementsTypes elementType) throws Exception
     {
         int startIndex = xml.indexOf(tagEnd);
