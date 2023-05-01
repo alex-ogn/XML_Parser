@@ -10,7 +10,7 @@ public class AddressNode extends BaseMiddleNode {
     }
 
     @Override
-    public boolean SupportChild(XML_ElementsTypes elementType)
+    public boolean supportChild(XML_ElementsTypes elementType)
     {
         boolean supportChild = false;
         switch (elementType)

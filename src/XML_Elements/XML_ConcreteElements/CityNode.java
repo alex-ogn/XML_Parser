@@ -11,4 +11,9 @@ public class CityNode extends BaseLeafNode<String> {
     public CityNode(String value) {
         super(XML_ElementsTypes.city, value);
     }
+
+    @Override
+    public void setStringValue(String value) {
+        setValue(value);
+    }
 }

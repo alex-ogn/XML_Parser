@@ -2,12 +2,16 @@
 import MenuHandlers.XML_ParserMenuElements.XML_ParserMainMenuInitializer;
 
 import XML_Elements.XML_ConcreteElements.*;
+import XML_ImportUtilities.XML_Parser;
 import XML_Printers.XMLBasePrinter;
 import XML_Printers.XMLConsolePrinter;
 import XML_Printers.XMLFilePrinter;
 
 public class Main {
-    public static void main(String[] args) {
+
+    // to do - delete
+    public static void Test1()
+    {
         System.out.println("Hello world!");
 
         PersonNode personNode = new PersonNode();
@@ -37,6 +41,31 @@ public class Main {
         }
 
         XML_ParserMainMenuInitializer.Initialize();
+    }
+
+
+    public static void Test2()
+    {
+
+        PeopleNode peopleNode = new PeopleNode();
+        String xml = " <people> <person> <name> Alex </name> </person> </people> ";
+
+        XML_Parser parser = new XML_Parser(xml, peopleNode);
+        XMLBasePrinter printer = new XMLConsolePrinter(peopleNode);
+        try {
+            parser.ParseXML();
+            printer.print();
+        }
+        catch (Exception e)
+        {
+            System.out.print(e);
+        }
+
+    }
+
+
+    public static void main(String[] args) {
+        Test2();
 
     }
 

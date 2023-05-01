@@ -11,4 +11,9 @@ public class CountryNode extends BaseLeafNode<String> {
     public CountryNode(String value) {
         super(XML_ElementsTypes.country, value);
     }
+
+    @Override
+    public void setStringValue(String value) {
+        setValue(value);
+    }
 }

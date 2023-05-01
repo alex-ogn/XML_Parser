@@ -8,11 +8,11 @@ public class XML_ParserMainMenuInitializer
     {
         ArrayList<XML_ParserMenuItems> menuItmens = new ArrayList<>();
         menuItmens.add(XML_ParserMenuItems.OPEN);
+        menuItmens.add(XML_ParserMenuItems.SAVE);
         menuItmens.add(XML_ParserMenuItems.SAVE_AS);
         menuItmens.add(XML_ParserMenuItems.CLOSE);
-        menuItmens.add(XML_ParserMenuItems.SAVE);
-        menuItmens.add(XML_ParserMenuItems.EXIT);
         menuItmens.add(XML_ParserMenuItems.HELP);
+        menuItmens.add(XML_ParserMenuItems.EXIT);
 
         Menu menu = new XML_ParserMenu(menuItmens);
         while (true)

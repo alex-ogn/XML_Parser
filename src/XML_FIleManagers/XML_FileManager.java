@@ -21,11 +21,12 @@ public abstract class XML_FileManager<T extends BaseMiddleNode>
     {
         if (!isFileOpen)
         {
-            System.out.println("There is not opened file.");
+            System.out.println("There isn't opened file.");
             return false;
         }
 
         this.filePath = filePath;
+        startNode = getNewStartNode();
 
         // to do
 
@@ -36,7 +37,7 @@ public abstract class XML_FileManager<T extends BaseMiddleNode>
     {
         if (!isFileOpen)
         {
-            System.out.println("There is not opened file.");
+            System.out.println("There isn't opened file.");
             return false;
         }
 
@@ -51,7 +52,7 @@ public abstract class XML_FileManager<T extends BaseMiddleNode>
     {
         if (!isFileOpen)
         {
-            System.out.println("There is not opened file.");
+            System.out.println("There isn't opened file.");
             return false;
         }
 
@@ -66,7 +67,7 @@ public abstract class XML_FileManager<T extends BaseMiddleNode>
     {
         if (!isFileOpen)
         {
-            System.out.println("There is not opened file.");
+            System.out.println("There isn't opened file.");
             return false;
         }
 

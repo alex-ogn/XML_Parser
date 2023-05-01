@@ -29,4 +29,10 @@ public abstract class BaseLeafNode<T> implements Node<T> {
     public void setValue(T value) {
         this.value = value;
     }
+
+    public abstract void setStringValue(String value);
+
+    public XML_ElementsTypes getType() {
+        return type;
+    }
 }

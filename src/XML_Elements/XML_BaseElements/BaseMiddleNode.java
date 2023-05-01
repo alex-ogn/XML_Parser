@@ -40,6 +40,10 @@ public abstract class BaseMiddleNode implements MiddleNode {
         childNodes = value;
     }
 
-    public abstract boolean SupportChild(XML_ElementsTypes elementType);
+    public XML_ElementsTypes getType() {
+        return type;
+    }
+
+    public abstract boolean supportChild(XML_ElementsTypes elementType);
 
 }

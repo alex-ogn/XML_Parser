@@ -10,4 +10,9 @@ public class NameNode extends BaseLeafNode<String> {
     public NameNode(String value) {
         super(XML_ElementsTypes.name, value);
     }
+
+    @Override
+    public void setStringValue(String value) {
+        setValue(value);
+    }
 }
