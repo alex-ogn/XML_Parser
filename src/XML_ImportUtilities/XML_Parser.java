@@ -4,7 +4,10 @@ import XML_Elements.Mapping.XML_ElementsTypes;
 import XML_Elements.Mapping.XML_ElementsTypesFactory;
 import XML_Elements.XML_BaseElements.BaseLeafNode;
 import XML_Elements.XML_BaseElements.BaseMiddleNode;
+import XML_Elements.XML_Interfaces.AttributeSupporter;
 import XML_Elements.XML_Interfaces.Node;
+
+import javax.management.Attribute;
 
 public class XML_Parser
 {
@@ -16,18 +19,23 @@ public class XML_Parser
         this.baseMiddleNode = baseMiddleNode;
     }
 
-    public boolean ParseXML()
+    public boolean ParseXML() throws Exception
     {
-        try {
-            ParseXML(baseMiddleNode, rawXML);
-        }
-        catch (Exception e)
-        {
-            System.out.println("Unable to parse xml: " + e);
-        }
+        rawXML = PrepareXMLForParsing(rawXML);
+        ParseXML(baseMiddleNode, rawXML);
 
         return true;
     }
+
+    private String PrepareXMLForParsing(String xml)
+    {
+        xml = xml.replaceAll("\n", "");
+        xml = xml.replaceAll("\t", "");
+        xml = xml.replaceAll("\r", "");
+
+        return xml;
+    }
+
 
     private void ParseXML(BaseMiddleNode middleNode, String xml) throws Exception
     {
@@ -35,6 +43,12 @@ public class XML_Parser
         XML_ElementsTypes element = XML_ElementsStringSplitter.GetFirstStartTag(xml);
         if (!element.equals(middleNode.getType()))
             throw new Exception(element.name + " is different than " + middleNode.getName());
+
+        if (middleNode instanceof AttributeSupporter)
+        {
+            String attributeValue = XML_ElementsStringSplitter.GetAttributeValue(xml);
+            ((AttributeSupporter) middleNode).setAttribute(attributeValue);
+        }
 
         String trimmedXML = XML_ElementsStringSplitter.TrimBeginAndEndTag(xml, middleNode.getType());
         trimmedXML = trimmedXML.trim();

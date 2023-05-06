@@ -1,6 +1,12 @@
 package XML_FIleManagers;
 import XML_Elements.XML_BaseElements.BaseMiddleNode;
+import XML_ImportUtilities.XML_Parser;
 import XML_Printers.XMLFilePrinter;
+
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Scanner;
 
 public abstract class XML_FileManager<T extends BaseMiddleNode>
 {
@@ -19,16 +25,27 @@ public abstract class XML_FileManager<T extends BaseMiddleNode>
 
     public boolean openFile(String filePath)
     {
-        if (!isFileOpen)
+        try {
+            if (isFileOpen)
+            {
+                System.out.println("There is already opened file.");
+                return false;
+            }
+
+            this.filePath = filePath;
+            startNode = getNewStartNode();
+
+            String xml = new String(Files.readAllBytes(Paths.get(filePath)));
+
+            XML_Parser parser = new XML_Parser(xml, startNode);
+            parser.ParseXML();
+            isFileOpen = true;
+        }
+        catch (Exception e)
         {
-            System.out.println("There isn't opened file.");
+            System.out.println("Unable to parse hml: " + e);
             return false;
         }
-
-        this.filePath = filePath;
-        startNode = getNewStartNode();
-
-        // to do
 
         return true;
     }
@@ -76,5 +93,10 @@ public abstract class XML_FileManager<T extends BaseMiddleNode>
             return false;
 
         return true;
+    }
+
+    public T getNode()
+    {
+        return startNode;
     }
 }

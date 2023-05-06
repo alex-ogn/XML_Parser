@@ -1,12 +1,12 @@
-package XML_Elements.XML_ConcreteElements;
+package XML_Elements.XML_ConcreteElements.Nodes;
 
 import XML_Elements.Mapping.XML_ElementsTypes;
 import XML_Elements.XML_BaseElements.BaseMiddleNode;
 
-public class PersonNode extends BaseMiddleNode {
+public class PeopleNode extends BaseMiddleNode {
 
-    public PersonNode() {
-        super(XML_ElementsTypes.person);
+    public PeopleNode() {
+        super(XML_ElementsTypes.people);
     }
 
     @Override
@@ -15,8 +15,7 @@ public class PersonNode extends BaseMiddleNode {
         boolean supportChild = false;
         switch (elementType)
         {
-            case name:
-            case address:
+            case person:
             {
                 supportChild = true;
                 break;

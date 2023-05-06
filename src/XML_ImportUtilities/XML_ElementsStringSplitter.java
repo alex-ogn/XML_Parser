@@ -1,7 +1,6 @@
 package XML_ImportUtilities;
-
-import MenuHandlers.XML_ParserMenuElements.XML_ParserMenuItems;
 import XML_Elements.Mapping.XML_ElementsTypes;
+import XML_Elements.XML_Interfaces.Attribute;
 
 public class XML_ElementsStringSplitter
 {
@@ -59,13 +58,24 @@ public class XML_ElementsStringSplitter
         return trimmedXML;
     }
 
+    public static String GetAttributeValue(String xml) throws Exception
+    {
+        int startIndex = xml.indexOf("\"");
+        if (startIndex <= 0)
+            throw new Exception("attribute isn't found");
+
+        int endIndex = xml.indexOf("\"", startIndex + 1);
+        if (endIndex <= 0)
+            throw new Exception("attribute isn't found");
+
+        final String value = xml.substring(startIndex + 1, endIndex);
+
+        return value;
+    }
+
     public static String getEndTag(XML_ElementsTypes XmlElement)
     {
         return endTagBegining + XmlElement.name() + tagEnd;
     }
 
-    public static String getStartTag(XML_ElementsTypes XmlElement)
-    {
-        return startTagBegining + XmlElement.name() + tagEnd;
-    }
 }

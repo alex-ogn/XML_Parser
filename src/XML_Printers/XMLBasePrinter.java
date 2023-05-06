@@ -1,6 +1,7 @@
 package XML_Printers;
 import XML_Elements.XML_BaseElements.BaseLeafNode;
 import XML_Elements.XML_BaseElements.BaseMiddleNode;
+import XML_Elements.XML_Interfaces.AttributeSupporter;
 import XML_Elements.XML_Interfaces.Node;
 
 import java.util.List;
@@ -46,7 +47,14 @@ public abstract class XMLBasePrinter
         String tap = "\t";
         String taps = tap.repeat(countDept);
 
-        printStringNewLine(taps + "<" + baseMiddleNode.getName() + ">");
+        StringBuilder attribute = new StringBuilder("");
+
+        if (baseMiddleNode instanceof AttributeSupporter)
+            attribute.append(((AttributeSupporter) baseMiddleNode).getAttribute().getName()
+                    + " =\"" + ((AttributeSupporter) baseMiddleNode).getAttribute().getValue()
+                    + "\"");
+
+        printStringNewLine(taps + "<" + baseMiddleNode.getName() + attribute +">");
 
         List<Node> list =  baseMiddleNode.getValue();
 

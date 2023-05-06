@@ -1,5 +1,8 @@
 package MenuHandlers.XML_ParserMenuElements;
 import XML_FIleManagers.PeopleXML_FileManager;
+import XML_Printers.XMLBasePrinter;
+import XML_Printers.XMLConsolePrinter;
+
 import java.util.Scanner;
 
 public class XML_ParserMenuChoiceHandler
@@ -43,6 +46,16 @@ public class XML_ParserMenuChoiceHandler
                 onToMainMenu();
                 break;
             }
+            case FILE_OPERATIONS:
+            {
+                onFileOperations();
+                break;
+            }
+            case XML_OPERATIONS:
+            {
+                onXMLOperations();
+                break;
+            }
             default:
             {
                 break;
@@ -58,11 +71,15 @@ public class XML_ParserMenuChoiceHandler
     {
         Scanner input = new Scanner( System.in );
         System.out.println("Enter file location: ");
-        String filePath = input.toString();
+        String filePath = input.nextLine();
 
         PeopleXML_FileManager fileManager = PeopleXML_FileManager.getInstance();
         if(fileManager.openFile(filePath))
             System.out.println("Successfully opened file.");
+
+        //to do remove
+        XMLBasePrinter printer = new XMLConsolePrinter(fileManager.getNode());
+        printer.print();
 
     }
     private void onClose()
@@ -81,8 +98,8 @@ public class XML_ParserMenuChoiceHandler
     private void onSaveAs()
     {
         Scanner input = new Scanner( System.in );
-        System.out.println("Enter new file location: ");
-        String filePath = input.toString();
+        System.out.println("Enter file location: ");
+        String filePath = input.nextLine();
 
         PeopleXML_FileManager fileManager = PeopleXML_FileManager.getInstance();
         if(fileManager.saveAsFile(filePath))
@@ -98,5 +115,15 @@ public class XML_ParserMenuChoiceHandler
     private void onToMainMenu()
     {
        // don't need to do anything
+    }
+    private void onFileOperations()
+    {
+        XML_ParserFileOperationsMenuInitializer menuInitializer = new XML_ParserFileOperationsMenuInitializer();
+        menuInitializer.Initialize();
+    }
+    private void onXMLOperations()
+    {
+        XML_ParserXMLOperationsMenuInitializer menuInitializer = new XML_ParserXMLOperationsMenuInitializer();
+        menuInitializer.Initialize();
     }
 }

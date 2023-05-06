@@ -1,6 +1,6 @@
 package XML_FIleManagers;
 
-import XML_Elements.XML_ConcreteElements.PeopleNode;
+import XML_Elements.XML_ConcreteElements.Nodes.PeopleNode;
 
 public class PeopleXML_FileManager extends XML_FileManager<PeopleNode>
 {

@@ -1,7 +1,7 @@
 
 import MenuHandlers.XML_ParserMenuElements.XML_ParserMainMenuInitializer;
 
-import XML_Elements.XML_ConcreteElements.*;
+import XML_Elements.XML_ConcreteElements.Nodes.*;
 import XML_ImportUtilities.XML_Parser;
 import XML_Printers.XMLBasePrinter;
 import XML_Printers.XMLConsolePrinter;
@@ -40,7 +40,7 @@ public class Main {
             System.out.print(e);
         }
 
-        XML_ParserMainMenuInitializer.Initialize();
+
     }
 
 
@@ -65,8 +65,8 @@ public class Main {
 
 
     public static void main(String[] args) {
-        Test2();
-
+        XML_ParserMainMenuInitializer menuInitializer = new XML_ParserMainMenuInitializer();
+        menuInitializer.Initialize();
     }
 
 }

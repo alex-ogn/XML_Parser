@@ -1,6 +1,6 @@
 package XML_Elements.Mapping;
 
-import XML_Elements.XML_ConcreteElements.*;
+import XML_Elements.XML_ConcreteElements.Nodes.*;
 import XML_Elements.XML_Interfaces.Node;
 
 public class XML_ElementsTypesFactory {

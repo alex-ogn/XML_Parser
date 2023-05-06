@@ -1,4 +1,4 @@
-package XML_Elements.XML_ConcreteElements;
+package XML_Elements.XML_ConcreteElements.Nodes;
 
 import XML_Elements.Mapping.XML_ElementsTypes;
 import XML_Elements.XML_BaseElements.BaseMiddleNode;
