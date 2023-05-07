@@ -39,7 +39,14 @@ public class XML_ParserMenu implements Menu {
     void onMenuItem(XML_ParserMenuItems menuItem)
     {
         XML_ParserMenuChoiceHandler choiceHandler = new XML_ParserMenuChoiceHandler();
-        choiceHandler.handleChoice(menuItem);
+        try {
+            choiceHandler.handleChoice(menuItem);
+        }
+        catch (Exception e)
+        {
+            System.out.println("Error executing operation: " + e.getMessage());
+        }
+
     }
 
 }

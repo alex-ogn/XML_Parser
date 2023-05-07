@@ -8,24 +8,18 @@ import java.util.List;
 
 public abstract class XMLBasePrinter
 {
-    private BaseMiddleNode baseMiddleNode;
-
-    public XMLBasePrinter(BaseMiddleNode baseMiddleNode)
+    public boolean print(Node node) throws Exception
     {
-        this.baseMiddleNode = baseMiddleNode;
-    }
-    public boolean print()
-    {
-        try {
-            beforePrint();
-            printMiddleNode(baseMiddleNode, 0);
-            afterPrint();
-        }
-        catch (Exception e)
+        beforePrint();
+        if (node instanceof BaseMiddleNode)
         {
-            System.out.println("Error printing the file.");
-            return false;
+            printMiddleNode((BaseMiddleNode)node, 0);
         }
+        else if(node instanceof BaseLeafNode)
+        {
+            printLeafNode((BaseLeafNode) node, 0);
+        }
+        afterPrint();
 
         return true;
     }
@@ -50,9 +44,13 @@ public abstract class XMLBasePrinter
         StringBuilder attribute = new StringBuilder("");
 
         if (baseMiddleNode instanceof AttributeSupporter)
-            attribute.append(((AttributeSupporter) baseMiddleNode).getAttribute().getName()
-                    + " =\"" + ((AttributeSupporter) baseMiddleNode).getAttribute().getValue()
+        {
+            String attributeValue = ((AttributeSupporter) baseMiddleNode).getAttribute().getValue();
+            if (!attributeValue.isEmpty())
+                attribute.append(((AttributeSupporter) baseMiddleNode).getAttribute().getName()
+                    + " =\"" + attributeValue
                     + "\"");
+        }
 
         printStringNewLine(taps + "<" + baseMiddleNode.getName() + attribute +">");
 

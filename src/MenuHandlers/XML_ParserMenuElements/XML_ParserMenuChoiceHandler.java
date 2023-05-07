@@ -1,13 +1,12 @@
 package MenuHandlers.XML_ParserMenuElements;
 import XML_FIleManagers.PeopleXML_FileManager;
-import XML_Printers.XMLBasePrinter;
 import XML_Printers.XMLConsolePrinter;
 
 import java.util.Scanner;
 
 public class XML_ParserMenuChoiceHandler
 {
-    public void handleChoice(XML_ParserMenuItems menuItem)
+    public void handleChoice(XML_ParserMenuItems menuItem) throws Exception
     {
         switch (menuItem)
         {
@@ -56,6 +55,43 @@ public class XML_ParserMenuChoiceHandler
                 onXMLOperations();
                 break;
             }
+            case PRINT_XML:
+            {
+                onPrint();
+                break;
+            }
+            case SELECT_XML:
+            {
+                break;
+            }
+            case SET_XML:
+            {
+                break;
+            }
+            case LIST_CHILDREN_XML:
+            {
+                break;
+            }
+            case CHILDREN_DESCENDANT_XML:
+            {
+                break;
+            }
+            case TEXT_XML:
+            {
+                break;
+            }
+            case DELETE_XML:
+            {
+                break;
+            }
+            case NEW_CHILD_XML:
+            {
+                break;
+            }
+            case XPATH_XML:
+            {
+                break;
+            }
             default:
             {
                 break;
@@ -67,43 +103,37 @@ public class XML_ParserMenuChoiceHandler
     {
         System.exit(0);
     }
-    private void onOpen()
+    private void onOpen() throws Exception
     {
         Scanner input = new Scanner( System.in );
         System.out.println("Enter file location: ");
         String filePath = input.nextLine();
 
         PeopleXML_FileManager fileManager = PeopleXML_FileManager.getInstance();
-        if(fileManager.openFile(filePath))
-            System.out.println("Successfully opened file.");
-
-        //to do remove
-        XMLBasePrinter printer = new XMLConsolePrinter(fileManager.getNode());
-        printer.print();
-
+        fileManager.openFile(filePath);
+        System.out.println("Successfully opened file.");
     }
-    private void onClose()
+    private void onClose() throws Exception
     {
         PeopleXML_FileManager fileManager = PeopleXML_FileManager.getInstance();
-        if(fileManager.closeFile())
-            System.out.println("Successfully closed file.");
-
+        fileManager.closeFile();
+        System.out.println("Successfully closed file.");
     }
-    private void onSave()
+    private void onSave() throws Exception
     {
         PeopleXML_FileManager fileManager = PeopleXML_FileManager.getInstance();
-        if(fileManager.saveFile())
-            System.out.println("Successfully saved file.");
+        fileManager.saveFile();
+        System.out.println("Successfully saved file.");
     }
-    private void onSaveAs()
+    private void onSaveAs() throws Exception
     {
         Scanner input = new Scanner( System.in );
         System.out.println("Enter file location: ");
         String filePath = input.nextLine();
 
         PeopleXML_FileManager fileManager = PeopleXML_FileManager.getInstance();
-        if(fileManager.saveAsFile(filePath))
-            System.out.println("Successfully saved file.");
+        fileManager.saveAsFile(filePath);
+        System.out.println("Successfully saved file.");
     }
     private void onHelp()
     {
@@ -116,14 +146,20 @@ public class XML_ParserMenuChoiceHandler
     {
        // don't need to do anything
     }
-    private void onFileOperations()
+    private void onFileOperations() throws Exception
     {
         XML_ParserFileOperationsMenuInitializer menuInitializer = new XML_ParserFileOperationsMenuInitializer();
         menuInitializer.Initialize();
     }
-    private void onXMLOperations()
+    private void onXMLOperations() throws Exception
     {
         XML_ParserXMLOperationsMenuInitializer menuInitializer = new XML_ParserXMLOperationsMenuInitializer();
         menuInitializer.Initialize();
+    }
+    private void onPrint() throws Exception
+    {
+        PeopleXML_FileManager fileManager = PeopleXML_FileManager.getInstance();
+        XMLConsolePrinter printer = new XMLConsolePrinter();
+        printer.print(fileManager.getNode());
     }
 }

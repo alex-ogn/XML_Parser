@@ -2,6 +2,8 @@ package MenuHandlers.XML_ParserMenuElements;
 
 import MenuHandlers.BaseMenu.Menu;
 
+import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
 public abstract class XML_ParserMenuInitializer {
@@ -29,7 +31,7 @@ public abstract class XML_ParserMenuInitializer {
             }
             catch (Exception e)
             {
-
+                System.out.println("Error executing command: " + e.getMessage());
             }
         }
        while (!isTemporary);

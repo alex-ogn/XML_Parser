@@ -47,7 +47,10 @@ public class XML_Parser
         if (middleNode instanceof AttributeSupporter)
         {
             String attributeValue = XML_ElementsStringSplitter.GetAttributeValue(xml);
-            ((AttributeSupporter) middleNode).setAttribute(attributeValue);
+
+            if (!attributeValue.isEmpty())
+                ((AttributeSupporter) middleNode).setAttribute(attributeValue);
+
         }
 
         String trimmedXML = XML_ElementsStringSplitter.TrimBeginAndEndTag(xml, middleNode.getType());

@@ -6,7 +6,9 @@ public class IdAttribute implements Attribute
 {
     private String value;
 
-    public IdAttribute() { }
+    public IdAttribute() {
+        value = "";
+    }
 
     public IdAttribute(String value)
     {

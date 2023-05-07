@@ -45,12 +45,12 @@ public class XML_ElementsStringSplitter
     public static String TrimBeginAndEndTag(String xml, XML_ElementsTypes elementType) throws Exception
     {
         int startIndex = xml.indexOf(tagEnd);
-        if (startIndex <= 0)
+        if (startIndex < 0)
             throw new Exception(tagEnd + " isn't found");
 
         String endTag = getEndTag(elementType);
         int endIndex = xml.indexOf(endTag);
-        if (endIndex <= 0)
+        if (endIndex < 0)
             throw new Exception(endTag + " isn't found");
 
         final String trimmedXML = xml.substring(startIndex + 1, endIndex);
@@ -60,12 +60,14 @@ public class XML_ElementsStringSplitter
 
     public static String GetAttributeValue(String xml) throws Exception
     {
-        int startIndex = xml.indexOf("\"");
-        if (startIndex <= 0)
-            throw new Exception("attribute isn't found");
+        final int startIndex = xml.indexOf("\"");
+        final int endTagIndex = xml.indexOf(tagEnd);
 
-        int endIndex = xml.indexOf("\"", startIndex + 1);
-        if (endIndex <= 0)
+        if (endTagIndex < startIndex || startIndex < 0)
+            return "";
+
+        final int endIndex = xml.indexOf("\"", startIndex + 1);
+        if (endIndex < 0)
             throw new Exception("attribute isn't found");
 
         final String value = xml.substring(startIndex + 1, endIndex);

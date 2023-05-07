@@ -29,11 +29,11 @@ public class Main {
         peopleNode.addChild(personNode);
         peopleNode.addChild(personNode);
 //
-        XMLBasePrinter printer = new XMLConsolePrinter(peopleNode);
-        XMLFilePrinter filePrinter = new XMLFilePrinter(peopleNode, "C:\\Users\\Alex\\Desktop\\Уни\\2 година\\2 Семестър\\ООП\\KP\\XML Parser\\text.xml");
+        XMLBasePrinter printer = new XMLConsolePrinter();
+        XMLFilePrinter filePrinter = new XMLFilePrinter("C:\\Users\\Alex\\Desktop\\Уни\\2 година\\2 Семестър\\ООП\\KP\\XML Parser\\text.xml");
         try {
-            printer.print();
-            filePrinter.print();
+            printer.print(peopleNode);
+            filePrinter.print(peopleNode);
         }
         catch (Exception e)
         {
@@ -51,10 +51,10 @@ public class Main {
         String xml = " <people> <person> <name> Alex2 </name> </person> <person> <name> Ivan </name> </person> </people> ";
 
         XML_Parser parser = new XML_Parser(xml, peopleNode);
-        XMLBasePrinter printer = new XMLConsolePrinter(peopleNode);
+        XMLBasePrinter printer = new XMLConsolePrinter();
         try {
             parser.ParseXML();
-            printer.print();
+            printer.print(peopleNode);
         }
         catch (Exception e)
         {

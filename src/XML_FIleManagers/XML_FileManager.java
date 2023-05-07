@@ -2,11 +2,8 @@ package XML_FIleManagers;
 import XML_Elements.XML_BaseElements.BaseMiddleNode;
 import XML_ImportUtilities.XML_Parser;
 import XML_Printers.XMLFilePrinter;
-
-import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Scanner;
 
 public abstract class XML_FileManager<T extends BaseMiddleNode>
 {
@@ -23,40 +20,26 @@ public abstract class XML_FileManager<T extends BaseMiddleNode>
 
     protected abstract T getNewStartNode();
 
-    public boolean openFile(String filePath)
+    public void openFile(String filePath) throws Exception
     {
-        try {
-            if (isFileOpen)
-            {
-                System.out.println("There is already opened file.");
-                return false;
-            }
+        if (isFileOpen)
+            throw new Exception("There is already opened file.");
 
-            this.filePath = filePath;
-            startNode = getNewStartNode();
+        this.filePath = filePath;
+        startNode = getNewStartNode();
 
-            String xml = new String(Files.readAllBytes(Paths.get(filePath)));
+        String xml = new String(Files.readAllBytes(Paths.get(filePath)));
 
-            XML_Parser parser = new XML_Parser(xml, startNode);
-            parser.ParseXML();
-            isFileOpen = true;
-        }
-        catch (Exception e)
-        {
-            System.out.println("Unable to parse hml: " + e);
-            return false;
-        }
+        XML_Parser parser = new XML_Parser(xml, startNode);
+        parser.ParseXML();
+        isFileOpen = true;
 
-        return true;
     }
 
-    public boolean closeFile()
+    public boolean closeFile() throws Exception
     {
         if (!isFileOpen)
-        {
-            System.out.println("There isn't opened file.");
-            return false;
-        }
+            throw new Exception("There isn't opened file.");
 
         startNode = getNewStartNode();
         isFileOpen = false;
@@ -65,34 +48,22 @@ public abstract class XML_FileManager<T extends BaseMiddleNode>
         return true;
     }
 
-    public boolean saveFile()
+    public void saveFile() throws Exception
     {
         if (!isFileOpen)
-        {
-            System.out.println("There isn't opened file.");
-            return false;
-        }
+            throw new Exception("There isn't opened file.");
 
-        XMLFilePrinter filePrinter = new XMLFilePrinter(startNode, filePath);
-        if(!filePrinter.print())
-            return false;
-
-        return true;
+        XMLFilePrinter filePrinter = new XMLFilePrinter(filePath);
+        filePrinter.print(startNode);
     }
 
-    public boolean saveAsFile(String newFilePath)
+    public void saveAsFile(String newFilePath) throws Exception
     {
         if (!isFileOpen)
-        {
-            System.out.println("There isn't opened file.");
-            return false;
-        }
+            throw new Exception("There isn't opened file.");
 
-        XMLFilePrinter filePrinter = new XMLFilePrinter(startNode, newFilePath);
-        if(!filePrinter.print())
-            return false;
-
-        return true;
+        XMLFilePrinter filePrinter = new XMLFilePrinter(newFilePath);
+        filePrinter.print(startNode);
     }
 
     public T getNode()
