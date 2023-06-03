@@ -8,7 +8,7 @@ import java.util.List;
 
 public abstract class BaseMiddleNode implements MiddleNode {
     private XML_ElementsTypes type;
-    List<Node> childNodes;
+    protected List<Node> childNodes;
 
     public BaseMiddleNode(XML_ElementsTypes type) {
         this.type = type;
@@ -40,10 +40,16 @@ public abstract class BaseMiddleNode implements MiddleNode {
         childNodes = value;
     }
 
+    @Override
     public XML_ElementsTypes getType() {
         return type;
     }
 
     public abstract boolean supportChild(XML_ElementsTypes elementType);
 
+    @Override
+    public String toString() {
+        return  "type = " + type +
+                ", \nchildren: \n" + childNodes;
+    }
 }

@@ -1,7 +1,7 @@
 package XML_FIleManagers;
 import XML_Elements.XML_BaseElements.BaseMiddleNode;
 import XML_ImportUtilities.XML_Parser;
-import XML_Printers.XMLFilePrinter;
+import XML_Printers.XMLFormatPrinter.XMLFilePrinter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
@@ -69,5 +69,9 @@ public abstract class XML_FileManager<T extends BaseMiddleNode>
     public T getNode()
     {
         return startNode;
+    }
+
+    public boolean isFileOpen() {
+        return isFileOpen;
     }
 }

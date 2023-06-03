@@ -1,5 +1,6 @@
 package XML_ImportUtilities;
 
+import Utilities.ElementIdGenerator;
 import XML_Elements.Mapping.XML_ElementsTypes;
 import XML_Elements.Mapping.XML_ElementsTypesFactory;
 import XML_Elements.XML_BaseElements.BaseLeafNode;
@@ -7,24 +8,25 @@ import XML_Elements.XML_BaseElements.BaseMiddleNode;
 import XML_Elements.XML_Interfaces.AttributeSupporter;
 import XML_Elements.XML_Interfaces.Node;
 
-import javax.management.Attribute;
 
 public class XML_Parser
 {
     protected String rawXML;
     private BaseMiddleNode baseMiddleNode;
 
+    private ElementIdGenerator elementIdGenerator;
+
     public XML_Parser(String rawXML, BaseMiddleNode baseMiddleNode) {
         this.rawXML = rawXML;
         this.baseMiddleNode = baseMiddleNode;
     }
 
-    public boolean ParseXML() throws Exception
+    public void ParseXML() throws Exception
     {
+        elementIdGenerator = new ElementIdGenerator();
+
         rawXML = PrepareXMLForParsing(rawXML);
         ParseXML(baseMiddleNode, rawXML);
-
-        return true;
     }
 
     private String PrepareXMLForParsing(String xml)
@@ -49,7 +51,9 @@ public class XML_Parser
             String attributeValue = XML_ElementsStringSplitter.GetAttributeValue(xml);
 
             if (!attributeValue.isEmpty())
-                ((AttributeSupporter) middleNode).setAttribute(attributeValue);
+                ((AttributeSupporter) middleNode).setAttribute(elementIdGenerator.generateId(attributeValue));
+            else
+                ((AttributeSupporter) middleNode).setAttribute(elementIdGenerator.generateId());
 
         }
 

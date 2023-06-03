@@ -1,14 +1,16 @@
-package XML_Printers;
+package XML_Printers.XMLFormatPrinter;
 import XML_Elements.XML_BaseElements.BaseLeafNode;
 import XML_Elements.XML_BaseElements.BaseMiddleNode;
 import XML_Elements.XML_Interfaces.AttributeSupporter;
 import XML_Elements.XML_Interfaces.Node;
+import XML_Printers.Interfaces.XMLPrinter;
 
 import java.util.List;
 
-public abstract class XMLBasePrinter
+public abstract class XMLBasePrinter implements XMLPrinter
 {
-    public boolean print(Node node) throws Exception
+    @Override
+    public void print(Node node) throws Exception
     {
         beforePrint();
         if (node instanceof BaseMiddleNode)
@@ -20,8 +22,6 @@ public abstract class XMLBasePrinter
             printLeafNode((BaseLeafNode) node, 0);
         }
         afterPrint();
-
-        return true;
     }
 
     protected void beforePrint() throws Exception
@@ -47,7 +47,7 @@ public abstract class XMLBasePrinter
         {
             String attributeValue = ((AttributeSupporter) baseMiddleNode).getAttribute().getValue();
             if (!attributeValue.isEmpty())
-                attribute.append(((AttributeSupporter) baseMiddleNode).getAttribute().getName()
+                attribute.append(" " + ((AttributeSupporter) baseMiddleNode).getAttribute().getName()
                     + " =\"" + attributeValue
                     + "\"");
         }

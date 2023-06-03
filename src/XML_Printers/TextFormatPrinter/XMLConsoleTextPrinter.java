@@ -1,8 +1,6 @@
-package XML_Printers;
-import XML_Elements.XML_BaseElements.BaseMiddleNode;
+package XML_Printers.TextFormatPrinter;
 
-public class XMLConsolePrinter extends XMLBasePrinter
-{
+public class XMLConsoleTextPrinter extends XMLTextBasePrinter{
     @Override
     protected void printString(String str) {
         System.out.print(str);

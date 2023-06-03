@@ -32,7 +32,14 @@ public abstract class BaseLeafNode<T> implements Node<T> {
 
     public abstract void setStringValue(String value);
 
+    @Override
     public XML_ElementsTypes getType() {
         return type;
+    }
+
+    @Override
+    public String toString() {
+        return "type = " + type +
+                ", value = " + value;
     }
 }

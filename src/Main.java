@@ -3,9 +3,9 @@ import MenuHandlers.XML_ParserMenuElements.XML_ParserMainMenuInitializer;
 
 import XML_Elements.XML_ConcreteElements.Nodes.*;
 import XML_ImportUtilities.XML_Parser;
-import XML_Printers.XMLBasePrinter;
-import XML_Printers.XMLConsolePrinter;
-import XML_Printers.XMLFilePrinter;
+import XML_Printers.XMLFormatPrinter.XMLBasePrinter;
+import XML_Printers.XMLFormatPrinter.XMLConsolePrinter;
+import XML_Printers.XMLFormatPrinter.XMLFilePrinter;
 
 public class Main {
 

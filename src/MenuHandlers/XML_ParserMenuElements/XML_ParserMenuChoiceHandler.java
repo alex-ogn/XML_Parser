@@ -1,6 +1,9 @@
 package MenuHandlers.XML_ParserMenuElements;
+import XML_Elements.Mapping.XML_ElementsTypes;
 import XML_FIleManagers.PeopleXML_FileManager;
-import XML_Printers.XMLConsolePrinter;
+import XML_Management.XML_Manager;
+import XML_Printers.TextFormatPrinter.XMLConsoleTextPrinter;
+import XML_Printers.XMLFormatPrinter.XMLConsolePrinter;
 
 import java.util.Scanner;
 
@@ -62,6 +65,7 @@ public class XML_ParserMenuChoiceHandler
             }
             case SELECT_XML:
             {
+                onSelectXML();
                 break;
             }
             case SET_XML:
@@ -78,14 +82,17 @@ public class XML_ParserMenuChoiceHandler
             }
             case TEXT_XML:
             {
+                onText();
                 break;
             }
             case DELETE_XML:
             {
+                onDelete();
                 break;
             }
             case NEW_CHILD_XML:
             {
+                onNewChild();
                 break;
             }
             case XPATH_XML:
@@ -161,5 +168,63 @@ public class XML_ParserMenuChoiceHandler
         PeopleXML_FileManager fileManager = PeopleXML_FileManager.getInstance();
         XMLConsolePrinter printer = new XMLConsolePrinter();
         printer.print(fileManager.getNode());
+    }
+
+    private void onSelectXML() throws Exception
+    {
+        PeopleXML_FileManager fileManager = PeopleXML_FileManager.getInstance();
+        XML_Manager xmlManager = new XML_Manager(fileManager.getNode());
+
+        Scanner input = new Scanner( System.in );
+        System.out.println("Enter ID: ");
+        String id = input.nextLine();
+
+        System.out.println("Enter key: ");
+        String key = input.nextLine();
+        XML_ElementsTypes keyType = XML_ElementsTypes.valueOf(key);
+
+        XMLConsoleTextPrinter xmlConsoleTextPrinter = new XMLConsoleTextPrinter();
+        xmlConsoleTextPrinter.print(xmlManager.selectById(id, keyType));
+    }
+    private void onDelete() throws Exception
+    {
+        PeopleXML_FileManager fileManager = PeopleXML_FileManager.getInstance();
+        XML_Manager xmlManager = new XML_Manager(fileManager.getNode());
+
+        Scanner input = new Scanner( System.in );
+        System.out.println("Enter ID: ");
+        String id = input.nextLine();
+
+        System.out.println("Enter key: ");
+        String key = input.nextLine();
+        XML_ElementsTypes keyType = XML_ElementsTypes.valueOf(key);
+
+        xmlManager.delete(id, keyType);
+        System.out.println("Successfully deleted element.");
+    }
+
+    private void onText() throws Exception
+    {
+        PeopleXML_FileManager fileManager = PeopleXML_FileManager.getInstance();
+        XML_Manager xmlManager = new XML_Manager(fileManager.getNode());
+
+        Scanner input = new Scanner( System.in );
+        System.out.println("Enter ID: ");
+        String id = input.nextLine();
+
+        xmlManager.textId(id);
+    }
+
+    private void onNewChild() throws Exception
+    {
+        PeopleXML_FileManager fileManager = PeopleXML_FileManager.getInstance();
+        XML_Manager xmlManager = new XML_Manager(fileManager.getNode());
+
+        Scanner input = new Scanner( System.in );
+        System.out.println("Enter ID: ");
+        String id = input.nextLine();
+
+        xmlManager.addChild(id, XML_ElementsTypes.person);
+        System.out.println("Successfully added element.");
     }
 }

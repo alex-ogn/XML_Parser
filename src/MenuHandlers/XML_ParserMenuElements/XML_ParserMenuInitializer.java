@@ -1,9 +1,6 @@
 package MenuHandlers.XML_ParserMenuElements;
 
 import MenuHandlers.BaseMenu.Menu;
-
-import java.awt.*;
-import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
 public abstract class XML_ParserMenuInitializer {
