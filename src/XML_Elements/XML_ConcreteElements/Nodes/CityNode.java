@@ -14,6 +14,6 @@ public class CityNode extends BaseLeafNode<String> {
 
     @Override
     public void setStringValue(String value) {
-        setValue(value);
+        this.value = value;
     }
 }

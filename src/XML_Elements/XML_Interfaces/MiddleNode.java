@@ -5,5 +5,5 @@ import java.util.List;
 public interface MiddleNode extends Node<List<Node>>
 {
     void addChild(Node node);
-    boolean removeChild(Node node);
+    void removeChild(Node node);
 }

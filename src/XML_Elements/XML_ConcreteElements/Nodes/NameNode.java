@@ -13,6 +13,6 @@ public class NameNode extends BaseLeafNode<String> {
 
     @Override
     public void setStringValue(String value) {
-        setValue(value);
+        this.value = value;
     }
 }

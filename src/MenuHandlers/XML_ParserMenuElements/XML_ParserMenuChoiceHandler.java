@@ -74,6 +74,7 @@ public class XML_ParserMenuChoiceHandler
             }
             case LIST_CHILDREN_XML:
             {
+                onChildren();
                 break;
             }
             case CHILDREN_DESCENDANT_XML:
@@ -212,7 +213,7 @@ public class XML_ParserMenuChoiceHandler
         System.out.println("Enter ID: ");
         String id = input.nextLine();
 
-        xmlManager.textId(id);
+        xmlManager.getElementDescription(id);
     }
 
     private void onNewChild() throws Exception
@@ -226,5 +227,17 @@ public class XML_ParserMenuChoiceHandler
 
         xmlManager.addChild(id, XML_ElementsTypes.person);
         System.out.println("Successfully added element.");
+    }
+
+    private void onChildren() throws Exception
+    {
+        PeopleXML_FileManager fileManager = PeopleXML_FileManager.getInstance();
+        XML_Manager xmlManager = new XML_Manager(fileManager.getNode());
+
+        Scanner input = new Scanner( System.in );
+        System.out.println("Enter ID: ");
+        String id = input.nextLine();
+
+        xmlManager.getElementDescription(id);
     }
 }

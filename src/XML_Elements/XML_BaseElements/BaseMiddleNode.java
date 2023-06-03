@@ -16,28 +16,8 @@ public abstract class BaseMiddleNode implements MiddleNode {
     }
 
     @Override
-    public void addChild(Node Node) {
-        childNodes.add(Node);
-    }
-
-    @Override
-    public boolean removeChild(Node Node) {
-        return childNodes.remove(Node);
-    }
-
-    @Override
     public String getName() {
         return type.name();
-    }
-
-    @Override
-    public List<Node> getValue() {
-        return childNodes;
-    }
-
-    @Override
-    public void setValue(List<Node> value) {
-        childNodes = value;
     }
 
     @Override

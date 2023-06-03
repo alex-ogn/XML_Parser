@@ -50,7 +50,7 @@ public class XML_Manager
         throw new Exception("Element with id " + id + " does not exist.");
     }
 
-    public void textId(String id) throws Exception
+    public void getElementDescription(String id) throws Exception
     {
         List<Node> list =  baseMiddleNode.getValue();
 
@@ -96,7 +96,7 @@ public class XML_Manager
             {
                 if (chilsNode.getType().equals(elementsTypes))
                 {
-                    baseMiddleNodeChild.getValue().remove(chilsNode);
+                    baseMiddleNodeChild.removeChild(chilsNode);
                     return;
                 }
             }

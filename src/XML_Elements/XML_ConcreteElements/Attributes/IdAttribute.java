@@ -10,11 +10,6 @@ public class IdAttribute implements Attribute
         value = "";
     }
 
-    public IdAttribute(String value)
-    {
-        this.value = value;
-    }
-
     @Override
     public String getValue() {
         return value;
