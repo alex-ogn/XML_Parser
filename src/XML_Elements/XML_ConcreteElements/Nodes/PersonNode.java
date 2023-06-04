@@ -20,6 +20,11 @@ public class PersonNode extends BaseMiddleNode implements AttributeSupporter {
         addressNodes = new ArrayList<>();
     }
 
+    public AddressNode GetAddresByIndex(int index)
+    {
+        return addressNodes.get(index);
+    }
+
     @Override
     public void addChild(Node node) {
         if (node instanceof NameNode)
@@ -33,7 +38,7 @@ public class PersonNode extends BaseMiddleNode implements AttributeSupporter {
         if (node instanceof NameNode)
             name = null;
         else if(node instanceof AddressNode)
-            addressNodes = null;
+            addressNodes.remove(node);
     }
 
     @Override

@@ -1,6 +1,7 @@
 package MenuHandlers.XML_ParserMenuElements;
 import XML_Elements.Mapping.XML_ElementsTypes;
 import XML_FIleManagers.PeopleXML_FileManager;
+import XML_Management.Person.PersonAttributeConsoleSetter;
 import XML_Management.XML_Manager;
 import XML_Printers.TextFormatPrinter.XMLConsoleTextPrinter;
 import XML_Printers.XMLFormatPrinter.XMLConsolePrinter;
@@ -70,6 +71,7 @@ public class XML_ParserMenuChoiceHandler
             }
             case SET_XML:
             {
+                onSet();
                 break;
             }
             case LIST_CHILDREN_XML:
@@ -79,6 +81,7 @@ public class XML_ParserMenuChoiceHandler
             }
             case CHILDREN_DESCENDANT_XML:
             {
+                onChildrenDescendant();
                 break;
             }
             case TEXT_XML:
@@ -187,6 +190,21 @@ public class XML_ParserMenuChoiceHandler
         XMLConsoleTextPrinter xmlConsoleTextPrinter = new XMLConsoleTextPrinter();
         xmlConsoleTextPrinter.print(xmlManager.selectById(id, keyType));
     }
+    private void onChildrenDescendant() throws Exception
+    {
+        PeopleXML_FileManager fileManager = PeopleXML_FileManager.getInstance();
+        XML_Manager xmlManager = new XML_Manager(fileManager.getNode());
+
+        Scanner input = new Scanner( System.in );
+        System.out.println("Enter ID: ");
+        String id = input.nextLine();
+
+        System.out.println("Enter index: ");
+        int index = input.nextInt();
+
+        XMLConsoleTextPrinter xmlConsoleTextPrinter = new XMLConsoleTextPrinter();
+        xmlConsoleTextPrinter.print(xmlManager.getChild(id, index));
+    }
     private void onDelete() throws Exception
     {
         PeopleXML_FileManager fileManager = PeopleXML_FileManager.getInstance();
@@ -239,5 +257,20 @@ public class XML_ParserMenuChoiceHandler
         String id = input.nextLine();
 
         xmlManager.getElementDescription(id);
+    }
+    private void onSet() throws Exception
+    {
+        PeopleXML_FileManager fileManager = PeopleXML_FileManager.getInstance();
+        PersonAttributeConsoleSetter setter = new PersonAttributeConsoleSetter(fileManager.getNode());
+
+        Scanner input = new Scanner( System.in );
+        System.out.println("Enter ID: ");
+        String id = input.nextLine();
+
+        System.out.println("Enter key: (name, address)");
+        String key = input.nextLine();
+        XML_ElementsTypes keyType = XML_ElementsTypes.valueOf(key);
+
+        setter.SetAttribute(id, keyType);
     }
 }

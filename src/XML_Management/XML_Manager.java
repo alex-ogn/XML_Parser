@@ -5,7 +5,6 @@ import XML_Elements.XML_BaseElements.BaseMiddleNode;
 import XML_Elements.XML_Interfaces.AttributeSupporter;
 import XML_Elements.XML_Interfaces.Node;
 import XML_Printers.TextFormatPrinter.XMLConsoleTextPrinter;
-
 import java.util.List;
 
 public class XML_Manager
@@ -16,7 +15,7 @@ public class XML_Manager
         this.baseMiddleNode = baseMiddleNode;
     }
 
-    public Node selectById(String id, XML_ElementsTypes elementsTypes) throws Exception
+    public Node getNode(String id) throws Exception
     {
         List<Node> list =  baseMiddleNode.getValue();
 
@@ -30,46 +29,39 @@ public class XML_Manager
             if (!(((AttributeSupporter) node).getAttribute().getValue().equals(id)))
                 continue;
 
-            if (!(node instanceof BaseMiddleNode))
-                throw new Exception("The element does not support key element.");
-
-            BaseMiddleNode baseMiddleNodeChild = (BaseMiddleNode)node;
-
-            for (Node chilsNode:
-                    baseMiddleNodeChild.getValue())
-            {
-                if (chilsNode.getType().equals(elementsTypes))
-                {
-                    return chilsNode;
-                }
-            }
-
-            throw new Exception("Element with key " + elementsTypes + " is not supported.");
+            return node;
         }
 
         throw new Exception("Element with id " + id + " does not exist.");
     }
 
-    public void getElementDescription(String id) throws Exception
+    public Node selectById(String id, XML_ElementsTypes elementsTypes) throws Exception
     {
-        List<Node> list =  baseMiddleNode.getValue();
+        Node node = getNode(id);
 
-        for (int i = 0; i < list.size(); i++)
+        if (!(node instanceof BaseMiddleNode))
+            throw new Exception("The element does not support key element.");
+
+        BaseMiddleNode baseMiddleNodeChild = (BaseMiddleNode)node;
+
+        for (Node childnode:
+                baseMiddleNodeChild.getValue())
         {
-            Node node = list.get(i);
-
-            if (!(node instanceof AttributeSupporter))
-                throw new Exception("The element does not support ID.");
-
-            if (!(((AttributeSupporter) node).getAttribute().getValue().equals(id)))
-                continue;
-
-            XMLConsoleTextPrinter xmlConsoleTextPrinter = new XMLConsoleTextPrinter();
-            xmlConsoleTextPrinter.print(node);
-            return;
+            if (childnode.getType().equals(elementsTypes))
+            {
+                return childnode;
+            }
         }
 
-        throw new Exception("Element with id " + id + " does not exist.");
+        throw new Exception("Element with key " + elementsTypes + " is not supported.");
+    }
+
+    public void getElementDescription(String id) throws Exception
+    {
+        Node node = getNode(id);
+
+        XMLConsoleTextPrinter xmlConsoleTextPrinter = new XMLConsoleTextPrinter();
+        xmlConsoleTextPrinter.print(node);
     }
 
     public void delete(String id, XML_ElementsTypes elementsTypes) throws Exception {
@@ -125,5 +117,31 @@ public class XML_Manager
         ((AttributeSupporter) node).setAttribute(id);
         baseMiddleNode.addChild(node);
 
+    }
+
+    public Node getChild(String id, int number) throws Exception
+    {
+        List<Node> list =  baseMiddleNode.getValue();
+
+        for (int i = 0; i < list.size(); i++)
+        {
+            Node node = list.get(i);
+
+            if (!(node instanceof AttributeSupporter))
+                throw new Exception("The element does not support ID.");
+
+            if (!(((AttributeSupporter) node).getAttribute().getValue().equals(id)))
+                continue;
+
+            if (!(node instanceof BaseMiddleNode))
+                throw new Exception("The element does not support key element.");
+
+            BaseMiddleNode baseMiddleNodeChild = (BaseMiddleNode)node;
+            Node childnode = baseMiddleNodeChild.getValue().get(number);
+
+            return childnode;
+        }
+
+        throw new Exception("Element with id " + id + " does not exist.");
     }
 }

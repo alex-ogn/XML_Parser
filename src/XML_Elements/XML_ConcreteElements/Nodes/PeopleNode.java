@@ -2,7 +2,6 @@ package XML_Elements.XML_ConcreteElements.Nodes;
 import XML_Elements.Mapping.XML_ElementsTypes;
 import XML_Elements.XML_BaseElements.BaseMiddleNode;
 import XML_Elements.XML_Interfaces.Node;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,7 +20,7 @@ public class PeopleNode extends BaseMiddleNode {
 
     @Override
     public List<Node> getValue() {
-        List<Node> nodes = new ArrayList<Node>(personNodes);
+        List<Node> nodes = new ArrayList<>(personNodes);
         return nodes;
     }
 
