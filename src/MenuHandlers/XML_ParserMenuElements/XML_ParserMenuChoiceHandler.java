@@ -101,6 +101,7 @@ public class XML_ParserMenuChoiceHandler
             }
             case XPATH_XML:
             {
+                onXPath();
                 break;
             }
             default:
@@ -272,5 +273,16 @@ public class XML_ParserMenuChoiceHandler
         XML_ElementsTypes keyType = XML_ElementsTypes.valueOf(key);
 
         setter.SetAttribute(id, keyType);
+    }
+
+    private void onXPath() throws Exception
+    {
+        PeopleXML_FileManager fileManager = PeopleXML_FileManager.getInstance();
+
+        Scanner input = new Scanner( System.in );
+        System.out.println("Enter XPath: ");
+        String xpath = input.nextLine();
+
+    //todo
     }
 }

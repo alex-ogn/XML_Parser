@@ -39,7 +39,7 @@ public class PersonAttributeConsoleSetter {
         String answer;
 
         do {
-            System.out.println("Do you want do add new address: y/n");
+            System.out.println("Do you want to add new address: y/n");
             answer = input.nextLine();
         } while (!answer.equals("y") && !answer.equals("n"));
 

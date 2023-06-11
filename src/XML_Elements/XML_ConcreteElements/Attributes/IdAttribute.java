@@ -1,5 +1,5 @@
 package XML_Elements.XML_ConcreteElements.Attributes;
-
+import XML_Elements.Mapping.XML_AttributeTypes;
 import XML_Elements.XML_Interfaces.Attribute;
 
 public class IdAttribute implements Attribute
@@ -22,6 +22,6 @@ public class IdAttribute implements Attribute
 
     @Override
     public String getName() {
-        return "Id";
+        return XML_AttributeTypes.id.toString();
     }
 }

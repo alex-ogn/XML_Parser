@@ -24,6 +24,14 @@ public abstract class XMLTextBasePrinter implements XMLPrinter
 
     }
 
+    public void print(List<Node> nodes) throws Exception
+    {
+        for (Node node:
+             nodes) {
+            print(node);
+        }
+    }
+
     protected abstract void printString(String str) throws Exception;
     protected abstract void printStringNewLine(String str) throws Exception;
     private void printMiddleNode(BaseMiddleNode baseMiddleNode, int countDept) throws Exception

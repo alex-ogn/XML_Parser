@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0c6ac7da-25ef-46bc-804c-348ac6807340" name="Changes" comment="Refactoring node implementations">
-      <change afterPath="$PROJECT_DIR$/src/XML_Management/Person/PersomXPAthQueriesExecutor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/XML_Management/Person/PersonAttributeConsoleSetter.java" afterDir="false" />
+    <list default="true" id="0c6ac7da-25ef-46bc-804c-348ac6807340" name="Changes" comment="Add setter">
+      <change afterPath="$PROJECT_DIR$/src/XML_Elements/Mapping/XML_AttributeTypes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/XML_Management/Person/PersonXPathQueriesExecutor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MenuHandlers/XML_ParserMenuElements/XML_ParserMenuChoiceHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MenuHandlers/XML_ParserMenuElements/XML_ParserMenuChoiceHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/XML_Elements/XML_ConcreteElements/Nodes/PeopleNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/XML_Elements/XML_ConcreteElements/Nodes/PeopleNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/XML_Elements/XML_ConcreteElements/Nodes/PersonNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/XML_Elements/XML_ConcreteElements/Nodes/PersonNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/XML_Management/XML_Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/XML_Management/XML_Manager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/XML_Elements/XML_ConcreteElements/Attributes/IdAttribute.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/XML_Elements/XML_ConcreteElements/Attributes/IdAttribute.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/XML_Elements/XML_ConcreteElements/Nodes/AddressNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/XML_Elements/XML_ConcreteElements/Nodes/AddressNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/XML_Management/Person/PersomXPAthQueriesExecutor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/XML_Management/Person/PersonAttributeConsoleSetter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/XML_Management/Person/PersonAttributeConsoleSetter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/XML_Printers/TextFormatPrinter/XMLTextBasePrinter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/XML_Printers/TextFormatPrinter/XMLTextBasePrinter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,7 +169,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685824920314</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Add setter">
+      <created>1685870701315</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1685870701315</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -193,6 +202,7 @@
     <MESSAGE value="Add menu and attributes" />
     <MESSAGE value="Add new operations" />
     <MESSAGE value="Refactoring node implementations" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactoring node implementations" />
+    <MESSAGE value="Add setter" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add setter" />
   </component>
 </project>

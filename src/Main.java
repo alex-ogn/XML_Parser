@@ -4,7 +4,7 @@ import XML_FIleManagers.PeopleXML_FileManager;
 
 public class Main {
     public static void main(String[] args) {
-        //to do delete
+        //todo delete
         try {
             PeopleXML_FileManager fileManager = PeopleXML_FileManager.getInstance();
             fileManager.openFile("C:\\Users\\Alex\\Desktop\\Уни\\2 година\\2 Семестър\\ООП\\KP\\XML Parser\\text.xml");
