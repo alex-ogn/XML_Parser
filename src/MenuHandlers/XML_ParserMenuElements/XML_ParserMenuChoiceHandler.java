@@ -2,6 +2,7 @@ package MenuHandlers.XML_ParserMenuElements;
 import XML_Elements.Mapping.XML_ElementsTypes;
 import XML_FIleManagers.PeopleXML_FileManager;
 import XML_Management.Person.PersonAttributeConsoleSetter;
+import XML_Management.Person.PersonXPathQueriesExecutor;
 import XML_Management.XML_Manager;
 import XML_Printers.TextFormatPrinter.XMLConsoleTextPrinter;
 import XML_Printers.XMLFormatPrinter.XMLConsolePrinter;
@@ -283,6 +284,7 @@ public class XML_ParserMenuChoiceHandler
         System.out.println("Enter XPath: ");
         String xpath = input.nextLine();
 
-    //todo
+        PersonXPathQueriesExecutor queriesExecutor = new PersonXPathQueriesExecutor(fileManager.getNode());
+        queriesExecutor.executeQuery(xpath);
     }
 }

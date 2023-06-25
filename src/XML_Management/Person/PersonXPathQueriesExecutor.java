@@ -2,6 +2,8 @@ package XML_Management.Person;
 import XML_Elements.Mapping.XML_AttributeTypes;
 import XML_Elements.Mapping.XML_ElementsTypes;
 import XML_Elements.XML_ConcreteElements.Nodes.PeopleNode;
+import XML_Elements.XML_ConcreteElements.Nodes.PersonNode;
+import XML_Elements.XML_Interfaces.AttributeSupporter;
 import XML_Elements.XML_Interfaces.Node;
 import XML_Printers.TextFormatPrinter.XMLConsoleTextPrinter;
 import java.util.ArrayList;
@@ -47,7 +49,7 @@ public class PersonXPathQueriesExecutor {
             else
             {
                 xpath = xpath.substring(1, xpath.length());
-
+                printAllElementsByCondition(xpath);
             }
         }
         else
@@ -60,10 +62,13 @@ public class PersonXPathQueriesExecutor {
     {
         List<Node> nodes = new ArrayList<>();
 
-        for (Node node:
+        for (Node person:
                 people.getValue()) {
-            if (node.getType() == type)
-                nodes.add(node);
+            for (Node node:
+                    ((PersonNode)person).getValue()) {
+                if (node.getType() == type)
+                    nodes.add(node);
+            }
         }
 
         return nodes;
@@ -98,12 +103,22 @@ public class PersonXPathQueriesExecutor {
 
     private void printAllElementsByCondition(String xpath) throws Exception
     {
+        XML_ElementsTypes type = getFirstElementsType(xpath);
+        xpath = xpath.substring(type.toString().length(), xpath.length());
+        char symbol = xpath.toCharArray()[0];
+        if (symbol != '=')
+            throw new Exception("Unidentified symbol - " + symbol);
 
+        xpath = xpath.substring(1, xpath.length());
     }
 
     private void printAllIdentifications() throws Exception
     {
-
+        for (Node person:
+                people.getValue()) {
+            XMLConsoleTextPrinter consoleTextPrinter = new XMLConsoleTextPrinter();
+            consoleTextPrinter.printID((AttributeSupporter) person);
+        }
     }
 
     private String getIdentificationCondition()

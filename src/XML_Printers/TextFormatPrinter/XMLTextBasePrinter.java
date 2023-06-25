@@ -80,4 +80,9 @@ public abstract class XMLTextBasePrinter implements XMLPrinter
         printString(baseLeafNode.getValue().toString());
         printStringNewLine(" ");
     }
+
+    public void printID(AttributeSupporter attributeSupporter) throws Exception
+    {
+        printStringNewLine("ID - " + attributeSupporter.getAttribute());
+    }
 }
