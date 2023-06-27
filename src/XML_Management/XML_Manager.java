@@ -98,6 +98,11 @@ public class XML_Manager
                 throw new Exception("The element does not support key element.");
 
             BaseMiddleNode baseMiddleNodeChild = (BaseMiddleNode)node;
+            if (baseMiddleNodeChild.getType().equals(elementsTypes))
+            {
+                baseMiddleNode.removeChild(baseMiddleNodeChild);
+                return;
+            }
 
             for (Node chilsNode:
                     baseMiddleNodeChild.getValue())

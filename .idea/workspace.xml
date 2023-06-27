@@ -1,26 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0c6ac7da-25ef-46bc-804c-348ac6807340" name="Changes" comment="XPath Queries">
+    <list default="true" id="0c6ac7da-25ef-46bc-804c-348ac6807340" name="Changes" comment="final finishes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MenuHandlers/BaseMenu/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MenuHandlers/BaseMenu/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MenuHandlers/XML_ParserMenuElements/XML_ParserMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MenuHandlers/XML_ParserMenuElements/XML_ParserMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MenuHandlers/XML_ParserMenuElements/XML_ParserMenuChoiceHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MenuHandlers/XML_ParserMenuElements/XML_ParserMenuChoiceHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MenuHandlers/XML_ParserMenuElements/XML_ParserMenuInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MenuHandlers/XML_ParserMenuElements/XML_ParserMenuInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MenuHandlers/XML_ParserMenuElements/XML_ParserXMLOperationsMenuInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MenuHandlers/XML_ParserMenuElements/XML_ParserXMLOperationsMenuInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Utilities/ElementIdGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utilities/ElementIdGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/XML_Elements/XML_ConcreteElements/Attributes/IdAttribute.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/XML_Elements/XML_ConcreteElements/Attributes/IdAttribute.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/XML_Elements/XML_ConcreteElements/Nodes/PersonNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/XML_Elements/XML_ConcreteElements/Nodes/PersonNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/XML_FIleManagers/XML_FileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/XML_FIleManagers/XML_FileManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/XML_ImportUtilities/XML_ElementsStringSplitter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/XML_ImportUtilities/XML_ElementsStringSplitter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/XML_ImportUtilities/XML_Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/XML_ImportUtilities/XML_Parser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/XML_Management/NodeIDFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/XML_Management/NodeIDFinder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/XML_Management/Person/PersonAttributeConsoleSetter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/XML_Management/Person/PersonAttributeConsoleSetter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/XML_Management/Person/PersonXPathQueriesExecutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/XML_Management/Person/PersonXPathQueriesExecutor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/XML_Management/XML_Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/XML_Management/XML_Manager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/XML_Printers/TextFormatPrinter/XMLTextBasePrinter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/XML_Printers/TextFormatPrinter/XMLTextBasePrinter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/XML_Printers/XMLFormatPrinter/XMLBasePrinter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/XML_Printers/XMLFormatPrinter/XMLBasePrinter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -202,7 +186,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687682435352</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="final finishes">
+      <created>1687899305614</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1687899305614</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -230,14 +221,15 @@
     <MESSAGE value="Refactoring node implementations" />
     <MESSAGE value="Add setter" />
     <MESSAGE value="XPath Queries" />
-    <option name="LAST_COMMIT_MESSAGE" value="XPath Queries" />
+    <MESSAGE value="final finishes" />
+    <option name="LAST_COMMIT_MESSAGE" value="final finishes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/XML_Management/XML_Manager.java</url>
-          <line>129</line>
+          <line>134</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
