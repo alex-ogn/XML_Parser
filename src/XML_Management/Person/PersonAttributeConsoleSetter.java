@@ -7,11 +7,9 @@ import java.util.Scanner;
 
 public class PersonAttributeConsoleSetter {
     private XML_Manager manager;
-
     public PersonAttributeConsoleSetter(PeopleNode baseMiddleNode) {
         this.manager = new XML_Manager(baseMiddleNode);
     }
-
     public void SetAttribute(String id, XML_ElementsTypes keyType) throws Exception {
         PersonNode person = (PersonNode) manager.getNode(id);
 
@@ -23,7 +21,6 @@ public class PersonAttributeConsoleSetter {
             throw new Exception("Person do not support " + keyType);
 
     }
-
     private void SetName(PersonNode person) throws Exception {
         Scanner input = new Scanner(System.in);
         System.out.println("Enter name:");
@@ -32,7 +29,6 @@ public class PersonAttributeConsoleSetter {
         NameNode nameNode = new NameNode(name);
         person.addChild(nameNode);
     }
-
     private void SetAddress(PersonNode person) throws Exception {
 
         Scanner input = new Scanner(System.in);
@@ -48,7 +44,6 @@ public class PersonAttributeConsoleSetter {
         else
             SetAddressByIndex(person);
     }
-
     private void SetAddressByIndex(PersonNode person) throws Exception {
         Scanner input = new Scanner(System.in);
         System.out.println("Enter address index: ");
@@ -62,7 +57,6 @@ public class PersonAttributeConsoleSetter {
             oldAddress.addChild(node);
         }
     }
-
     private AddressNode GetNewAddress() throws Exception {
         Scanner input = new Scanner(System.in);
         System.out.println("Enter country name: ");
@@ -80,6 +74,4 @@ public class PersonAttributeConsoleSetter {
     private void AddAddress(PersonNode person) throws Exception {
         person.addChild(GetNewAddress());
     }
-
-
 }

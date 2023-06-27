@@ -7,7 +7,6 @@ public class XML_ElementsStringSplitter
     private static char startTagBegining = '<';
     private static String endTagBegining = "</";
     private static char tagEnd = '>';
-
     public static XML_ElementsTypes GetFirstStartTag(String xml) throws Exception
     {
         if (xml.charAt(0) != startTagBegining)
@@ -31,7 +30,6 @@ public class XML_ElementsStringSplitter
 
         throw new Exception("XML element " + nodeName + " isn't found");
     }
-
     public static String TrimFirstNodeOfType(String xml, XML_ElementsTypes elementType) throws Exception
     {
         int startIndex = xml.indexOf(startTagBegining + elementType.name());
@@ -41,7 +39,6 @@ public class XML_ElementsStringSplitter
 
         return trimmedXML;
     }
-
     public static String TrimBeginAndEndTag(String xml, XML_ElementsTypes elementType) throws Exception
     {
         int startIndex = xml.indexOf(tagEnd);
@@ -57,7 +54,6 @@ public class XML_ElementsStringSplitter
 
         return trimmedXML;
     }
-
     public static String GetAttributeValue(String xml) throws Exception
     {
         final int startIndex = xml.indexOf("\"");
@@ -74,7 +70,6 @@ public class XML_ElementsStringSplitter
 
         return value;
     }
-
     public static String getEndTag(XML_ElementsTypes XmlElement)
     {
         return endTagBegining + XmlElement.name() + tagEnd;

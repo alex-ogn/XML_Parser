@@ -23,7 +23,6 @@ public abstract class XMLTextBasePrinter implements XMLPrinter
         }
 
     }
-
     public void print(List<Node> nodes) throws Exception
     {
         for (Node node:
@@ -31,7 +30,6 @@ public abstract class XMLTextBasePrinter implements XMLPrinter
             print(node);
         }
     }
-
     protected abstract void printString(String str) throws Exception;
     protected abstract void printStringNewLine(String str) throws Exception;
     private void printMiddleNode(BaseMiddleNode baseMiddleNode, int countDept) throws Exception
@@ -70,7 +68,6 @@ public abstract class XMLTextBasePrinter implements XMLPrinter
             }
         }
     }
-
     private void printLeafNode(BaseLeafNode baseLeafNode, int countDept) throws Exception
     {
         String tap = "\t";
@@ -80,9 +77,8 @@ public abstract class XMLTextBasePrinter implements XMLPrinter
         printString(baseLeafNode.getValue().toString());
         printStringNewLine(" ");
     }
-
     public void printID(AttributeSupporter attributeSupporter) throws Exception
     {
-        printStringNewLine("ID - " + attributeSupporter.getAttribute());
+        printStringNewLine("ID - " + attributeSupporter.getAttribute().getValue());
     }
 }

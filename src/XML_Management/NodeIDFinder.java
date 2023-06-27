@@ -5,7 +5,6 @@ import XML_Elements.XML_Interfaces.Node;
 import java.util.List;
 
 public class NodeIDFinder {
-
     List<Node> nodes;
 
     NodeIDFinder(List<Node> nodes)
@@ -27,5 +26,4 @@ public class NodeIDFinder {
 
         return false;
     }
-
 }

@@ -6,12 +6,14 @@ import java.util.Map;
 public class ElementIdGenerator {
     private int counter;
     private Map<String, Integer> idCounts;
-
     public ElementIdGenerator() {
         this.counter = 1;
         this.idCounts = new HashMap<>();
     }
-
+    public ElementIdGenerator(Map<String, Integer> map) {
+        this.counter = 1;
+        this.idCounts = map;
+    }
     public String generateId(String id) {
         if (id != null) {
             int count = idCounts.getOrDefault(id, 0);
@@ -25,7 +27,6 @@ public class ElementIdGenerator {
         idCounts.put(id, 1);
         return id;
     }
-
     public String generateId() {
         return generateId(null);
     }

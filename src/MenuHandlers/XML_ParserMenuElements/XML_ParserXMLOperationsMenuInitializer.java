@@ -1,5 +1,7 @@
 package MenuHandlers.XML_ParserMenuElements;
 
+import XML_FIleManagers.PeopleXML_FileManager;
+
 import java.util.ArrayList;
 
 public class XML_ParserXMLOperationsMenuInitializer extends XML_ParserMenuInitializer
@@ -7,6 +9,19 @@ public class XML_ParserXMLOperationsMenuInitializer extends XML_ParserMenuInitia
 
     public XML_ParserXMLOperationsMenuInitializer() {
         super(true);
+    }
+
+    @Override
+    public void Initialize() {
+
+        PeopleXML_FileManager fileManager = PeopleXML_FileManager.getInstance();
+        if (!fileManager.isFileOpen())
+        {
+            System.out.println("There isn't opened XML file.");
+            return;
+        }
+
+        super.Initialize();
     }
 
     @Override

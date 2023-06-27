@@ -1,20 +1,39 @@
 package XML_Management;
+import Utilities.ElementIdGenerator;
 import XML_Elements.Mapping.XML_ElementsTypes;
 import XML_Elements.Mapping.XML_ElementsTypesFactory;
 import XML_Elements.XML_BaseElements.BaseMiddleNode;
 import XML_Elements.XML_Interfaces.AttributeSupporter;
 import XML_Elements.XML_Interfaces.Node;
 import XML_Printers.TextFormatPrinter.XMLConsoleTextPrinter;
+
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class XML_Manager
 {
     private BaseMiddleNode baseMiddleNode;
-
+    private ElementIdGenerator elementIdGenerator;
     public XML_Manager(BaseMiddleNode baseMiddleNode) {
         this.baseMiddleNode = baseMiddleNode;
+        elementIdGenerator = new ElementIdGenerator(getIDMap(baseMiddleNode));
     }
 
+    private Map<String, Integer> getIDMap(BaseMiddleNode baseMiddleNode)
+    {
+        Map<String, Integer> map = new HashMap<>();
+        for (Node node:
+                baseMiddleNode.getValue()) {
+
+            if (!(node instanceof AttributeSupporter))
+                continue;
+
+            map.put(((AttributeSupporter) node).getAttribute().getValue(), 1);
+        }
+
+        return map;
+    }
     public Node getNode(String id) throws Exception
     {
         List<Node> list =  baseMiddleNode.getValue();
@@ -34,7 +53,6 @@ public class XML_Manager
 
         throw new Exception("Element with id " + id + " does not exist.");
     }
-
     public Node selectById(String id, XML_ElementsTypes elementsTypes) throws Exception
     {
         Node node = getNode(id);
@@ -55,7 +73,6 @@ public class XML_Manager
 
         throw new Exception("Element with key " + elementsTypes + " is not supported.");
     }
-
     public void getElementDescription(String id) throws Exception
     {
         Node node = getNode(id);
@@ -63,7 +80,6 @@ public class XML_Manager
         XMLConsoleTextPrinter xmlConsoleTextPrinter = new XMLConsoleTextPrinter();
         xmlConsoleTextPrinter.print(node);
     }
-
     public void delete(String id, XML_ElementsTypes elementsTypes) throws Exception {
 
         List<Node> list =  baseMiddleNode.getValue();
@@ -98,8 +114,6 @@ public class XML_Manager
 
         throw new Exception("Element with id " + id + " does not exist.");
     }
-
-
     public void addChild(String id, XML_ElementsTypes elementsTypes) throws Exception {
         if (!baseMiddleNode.supportChild(elementsTypes))
             throw new Exception(baseMiddleNode.getName() + " don't support " + elementsTypes.name());
@@ -108,17 +122,14 @@ public class XML_Manager
         if (nodeIDFinder.hasId(id))
             throw new Exception("The ID is not unique.");
 
-
         Node node = XML_ElementsTypesFactory.createNode(elementsTypes);
 
         if (!(node instanceof AttributeSupporter))
             throw new Exception(elementsTypes + " do not support ID");
 
-        ((AttributeSupporter) node).setAttribute(id);
+        ((AttributeSupporter) node).setAttribute(elementIdGenerator.generateId(id));
         baseMiddleNode.addChild(node);
-
     }
-
     public Node getChild(String id, int number) throws Exception
     {
         List<Node> list =  baseMiddleNode.getValue();

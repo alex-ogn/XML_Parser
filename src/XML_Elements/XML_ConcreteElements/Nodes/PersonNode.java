@@ -5,7 +5,6 @@ import XML_Elements.XML_ConcreteElements.Attributes.IdAttribute;
 import XML_Elements.XML_Interfaces.Attribute;
 import XML_Elements.XML_Interfaces.AttributeSupporter;
 import XML_Elements.XML_Interfaces.Node;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +12,6 @@ public class PersonNode extends BaseMiddleNode implements AttributeSupporter {
     private IdAttribute id;
     private NameNode name;
     private List<AddressNode> addressNodes;
-
     public PersonNode() {
         super(XML_ElementsTypes.person);
         id = new IdAttribute();
@@ -50,7 +48,8 @@ public class PersonNode extends BaseMiddleNode implements AttributeSupporter {
 
         for (AddressNode address
                 :addressNodes
-             ) {
+             )
+        {
             nodes.add(address);
         }
 
@@ -85,7 +84,6 @@ public class PersonNode extends BaseMiddleNode implements AttributeSupporter {
     public Attribute getAttribute() {
         return id;
     }
-
     @Override
     public void setAttribute(String id) {
         this.id.setValue(id);

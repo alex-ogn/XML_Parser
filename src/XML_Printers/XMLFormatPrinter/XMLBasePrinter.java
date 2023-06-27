@@ -4,7 +4,6 @@ import XML_Elements.XML_BaseElements.BaseMiddleNode;
 import XML_Elements.XML_Interfaces.AttributeSupporter;
 import XML_Elements.XML_Interfaces.Node;
 import XML_Printers.Interfaces.XMLPrinter;
-
 import java.util.List;
 
 public abstract class XMLBasePrinter implements XMLPrinter
@@ -23,17 +22,12 @@ public abstract class XMLBasePrinter implements XMLPrinter
         }
         afterPrint();
     }
-
-    protected void beforePrint() throws Exception
-    {
+    protected void beforePrint() throws Exception {
 
     }
-
-    protected void afterPrint() throws Exception
-    {
+    protected void afterPrint() throws Exception {
 
     }
-
     protected abstract void printString(String str) throws Exception;
     protected abstract void printStringNewLine(String str) throws Exception;
     private void printMiddleNode(BaseMiddleNode baseMiddleNode, int countDept) throws Exception
@@ -71,7 +65,6 @@ public abstract class XMLBasePrinter implements XMLPrinter
 
         printStringNewLine(taps + "</" + baseMiddleNode.getName() + ">");
     }
-
     private void printLeafNode(BaseLeafNode baseLeafNode, int countDept) throws Exception
     {
         String tap = "\t";

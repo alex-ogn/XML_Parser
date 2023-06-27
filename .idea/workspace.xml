@@ -3,9 +3,24 @@
   <component name="ChangeListManager">
     <list default="true" id="0c6ac7da-25ef-46bc-804c-348ac6807340" name="Changes" comment="XPath Queries">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MenuHandlers/BaseMenu/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MenuHandlers/BaseMenu/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MenuHandlers/XML_ParserMenuElements/XML_ParserMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MenuHandlers/XML_ParserMenuElements/XML_ParserMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MenuHandlers/XML_ParserMenuElements/XML_ParserMenuChoiceHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MenuHandlers/XML_ParserMenuElements/XML_ParserMenuChoiceHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MenuHandlers/XML_ParserMenuElements/XML_ParserMenuInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MenuHandlers/XML_ParserMenuElements/XML_ParserMenuInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MenuHandlers/XML_ParserMenuElements/XML_ParserXMLOperationsMenuInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MenuHandlers/XML_ParserMenuElements/XML_ParserXMLOperationsMenuInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Utilities/ElementIdGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utilities/ElementIdGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/XML_Elements/XML_ConcreteElements/Attributes/IdAttribute.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/XML_Elements/XML_ConcreteElements/Attributes/IdAttribute.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/XML_Elements/XML_ConcreteElements/Nodes/PersonNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/XML_Elements/XML_ConcreteElements/Nodes/PersonNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/XML_FIleManagers/XML_FileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/XML_FIleManagers/XML_FileManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/XML_ImportUtilities/XML_ElementsStringSplitter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/XML_ImportUtilities/XML_ElementsStringSplitter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/XML_ImportUtilities/XML_Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/XML_ImportUtilities/XML_Parser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/XML_Management/NodeIDFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/XML_Management/NodeIDFinder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/XML_Management/Person/PersonAttributeConsoleSetter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/XML_Management/Person/PersonAttributeConsoleSetter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/XML_Management/Person/PersonXPathQueriesExecutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/XML_Management/Person/PersonXPathQueriesExecutor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/XML_Management/XML_Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/XML_Management/XML_Manager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/XML_Printers/TextFormatPrinter/XMLTextBasePrinter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/XML_Printers/TextFormatPrinter/XMLTextBasePrinter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/XML_Printers/XMLFormatPrinter/XMLBasePrinter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/XML_Printers/XMLFormatPrinter/XMLBasePrinter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +57,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/Alex/Desktop/Уни/2 година/2 Семестър/ООП/Homework1&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.Color Scheme Font&quot;
   }
 }</component>
   <component name="RunManager">
@@ -180,7 +195,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686514814999</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="XPath Queries">
+      <created>1687682435352</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1687682435352</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -214,9 +236,19 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/XML_Management/XML_Manager.java</url>
+          <line>129</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/XML_Management/Person/PersonXPathQueriesExecutor.java</url>
-          <line>33</line>
-          <option name="timeStamp" value="1" />
+          <line>127</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/XML_Management/Person/PersonXPathQueriesExecutor.java</url>
+          <line>136</line>
+          <option name="timeStamp" value="15" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

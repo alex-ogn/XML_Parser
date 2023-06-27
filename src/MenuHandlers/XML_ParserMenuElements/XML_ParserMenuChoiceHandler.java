@@ -6,7 +6,6 @@ import XML_Management.Person.PersonXPathQueriesExecutor;
 import XML_Management.XML_Manager;
 import XML_Printers.TextFormatPrinter.XMLConsoleTextPrinter;
 import XML_Printers.XMLFormatPrinter.XMLConsolePrinter;
-
 import java.util.Scanner;
 
 public class XML_ParserMenuChoiceHandler

@@ -8,28 +8,23 @@ import XML_Elements.XML_BaseElements.BaseMiddleNode;
 import XML_Elements.XML_Interfaces.AttributeSupporter;
 import XML_Elements.XML_Interfaces.Node;
 
-
 public class XML_Parser
 {
     protected String rawXML;
     private BaseMiddleNode baseMiddleNode;
-
     private ElementIdGenerator elementIdGenerator;
-
     public XML_Parser(String rawXML, BaseMiddleNode baseMiddleNode) {
         this.rawXML = rawXML;
         this.baseMiddleNode = baseMiddleNode;
     }
-
-    public void ParseXML() throws Exception
+    public void parseXML() throws Exception
     {
         elementIdGenerator = new ElementIdGenerator();
 
-        rawXML = PrepareXMLForParsing(rawXML);
-        ParseXML(baseMiddleNode, rawXML);
+        rawXML = prepareXMLForParsing(rawXML);
+        parseXML(baseMiddleNode, rawXML);
     }
-
-    private String PrepareXMLForParsing(String xml)
+    private String prepareXMLForParsing(String xml)
     {
         xml = xml.replaceAll("\n", "");
         xml = xml.replaceAll("\t", "");
@@ -37,9 +32,7 @@ public class XML_Parser
 
         return xml;
     }
-
-
-    private void ParseXML(BaseMiddleNode middleNode, String xml) throws Exception
+    private void parseXML(BaseMiddleNode middleNode, String xml) throws Exception
     {
         xml = xml.trim();
         XML_ElementsTypes element = XML_ElementsStringSplitter.GetFirstStartTag(xml);
@@ -69,12 +62,12 @@ public class XML_Parser
             if (node instanceof BaseMiddleNode)
             {
                 BaseMiddleNode childMiddleNode = (BaseMiddleNode)node;
-                ParseXML(childMiddleNode, trimmedXML);
+                parseXML(childMiddleNode, trimmedXML);
             }
             else if(node instanceof BaseLeafNode)
             {
                 BaseLeafNode childLeafNode = (BaseLeafNode)node;
-                ParseXML(childLeafNode, trimmedXML);
+                parseXML(childLeafNode, trimmedXML);
             }
 
             trimmedXML = XML_ElementsStringSplitter.TrimFirstNodeOfType(trimmedXML, elementChild);
@@ -83,8 +76,7 @@ public class XML_Parser
             middleNode.addChild(node);
         }
     }
-
-    private void ParseXML(BaseLeafNode leafNode, String xml) throws Exception
+    private void parseXML(BaseLeafNode leafNode, String xml) throws Exception
     {
         xml.trim();
         XML_ElementsTypes element = XML_ElementsStringSplitter.GetFirstStartTag(xml);
@@ -96,6 +88,4 @@ public class XML_Parser
 
         leafNode.setStringValue(trimmedXML);
     }
-
-
 }
