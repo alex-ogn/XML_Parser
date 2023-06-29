@@ -30,6 +30,10 @@ public class PersonXPathQueriesExecutor {
     public void executeQuery(String xpath) throws Exception {
 
         xpath = xpath.trim();
+
+        if (xpath.equals(XML_ElementsTypes.person.toString()))
+            printAllPeople();
+
         xpath = xpath.substring(XML_ElementsTypes.person.toString().length(), xpath.length());
 
         char symbol = xpath.toCharArray()[0];
@@ -54,6 +58,12 @@ public class PersonXPathQueriesExecutor {
         {
             throw new Exception("Unidentified symbol - " + symbol);
         }
+    }
+
+    private void printAllPeople() throws Exception
+    {
+        XMLConsoleTextPrinter printer = new XMLConsoleTextPrinter();
+        printer.print(people);
     }
     public List<Node> getAllNodesFromType(XML_ElementsTypes type)
     {

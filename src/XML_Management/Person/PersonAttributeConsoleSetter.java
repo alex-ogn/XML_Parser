@@ -10,6 +10,15 @@ public class PersonAttributeConsoleSetter {
     public PersonAttributeConsoleSetter(PeopleNode baseMiddleNode) {
         this.manager = new XML_Manager(baseMiddleNode);
     }
+
+    private String getUserInput()
+    {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("> ");
+        String input = scanner.nextLine();
+
+        return input;
+    }
     public void SetAttribute(String id, XML_ElementsTypes keyType) throws Exception {
         PersonNode person = (PersonNode) manager.getNode(id);
 
@@ -24,7 +33,7 @@ public class PersonAttributeConsoleSetter {
     private void SetName(PersonNode person) throws Exception {
         Scanner input = new Scanner(System.in);
         System.out.println("Enter name:");
-        String name = input.nextLine();
+        String name = getUserInput();
 
         NameNode nameNode = new NameNode(name);
         person.addChild(nameNode);
@@ -36,7 +45,7 @@ public class PersonAttributeConsoleSetter {
 
         do {
             System.out.println("Do you want to add new address: y/n");
-            answer = input.nextLine();
+            answer = getUserInput();
         } while (!answer.equals("y") && !answer.equals("n"));
 
         if (answer.equals("y"))
@@ -47,7 +56,7 @@ public class PersonAttributeConsoleSetter {
     private void SetAddressByIndex(PersonNode person) throws Exception {
         Scanner input = new Scanner(System.in);
         System.out.println("Enter address index: ");
-        int index = input.nextInt();
+        int index = Integer.parseInt(getUserInput());
 
         AddressNode newAddress = GetNewAddress();
         AddressNode oldAddress = person.GetAddresByIndex(index);
@@ -60,10 +69,10 @@ public class PersonAttributeConsoleSetter {
     private AddressNode GetNewAddress() throws Exception {
         Scanner input = new Scanner(System.in);
         System.out.println("Enter country name: ");
-        String countryName = input.nextLine();
+        String countryName = getUserInput();
 
         System.out.println("Enter city name: ");
-        String cityName = input.nextLine();
+        String cityName = getUserInput();
 
         AddressNode addressNode = new AddressNode();
         addressNode.addChild(new CityNode(cityName));

@@ -1,5 +1,6 @@
-package MenuHandlers.XML_ParserMenuElements;
+package MenuHandlers.XML_ParserMenuElements.Menu;
 
+import MenuHandlers.XML_ParserMenuElements.XML_ParserMenuItems;
 import XML_FIleManagers.PeopleXML_FileManager;
 
 import java.util.ArrayList;

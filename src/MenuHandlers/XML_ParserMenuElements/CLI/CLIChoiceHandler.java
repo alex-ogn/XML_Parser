@@ -1,4 +1,6 @@
-package MenuHandlers.XML_ParserMenuElements;
+package MenuHandlers.XML_ParserMenuElements.CLI;
+import MenuHandlers.BaseMenu.ChoiceHandler;
+import MenuHandlers.XML_ParserMenuElements.XML_ParserMenuItems;
 import XML_Elements.Mapping.XML_ElementsTypes;
 import XML_FIleManagers.PeopleXML_FileManager;
 import XML_Management.Person.PersonAttributeConsoleSetter;
@@ -6,10 +8,15 @@ import XML_Management.Person.PersonXPathQueriesExecutor;
 import XML_Management.XML_Manager;
 import XML_Printers.TextFormatPrinter.XMLConsoleTextPrinter;
 import XML_Printers.XMLFormatPrinter.XMLConsolePrinter;
-import java.util.Scanner;
 
-public class XML_ParserMenuChoiceHandler
-{
+public class CLIChoiceHandler implements ChoiceHandler {
+    String[] command;
+    CLIChoiceHandler(String[] command)
+    {
+        this.command = command;
+    }
+
+    @Override
     public void handleChoice(XML_ParserMenuItems menuItem) throws Exception
     {
         switch (menuItem)
@@ -42,21 +49,6 @@ public class XML_ParserMenuChoiceHandler
             case EXIT:
             {
                 onExit();
-                break;
-            }
-            case TO_MAIN_MENU:
-            {
-                onToMainMenu();
-                break;
-            }
-            case FILE_OPERATIONS:
-            {
-                onFileOperations();
-                break;
-            }
-            case XML_OPERATIONS:
-            {
-                onXMLOperations();
                 break;
             }
             case PRINT_XML:
@@ -117,34 +109,52 @@ public class XML_ParserMenuChoiceHandler
     }
     private void onOpen() throws Exception
     {
-        Scanner input = new Scanner( System.in );
-        System.out.println("Enter file location: ");
-        String filePath = input.nextLine();
-
         PeopleXML_FileManager fileManager = PeopleXML_FileManager.getInstance();
-        fileManager.openFile(filePath);
+
+        StringBuilder sb = new StringBuilder();
+        for (int i = 1; i < command.length; i++) {
+            if (!sb.toString().isEmpty())
+                sb.append(" ");
+            sb.append(command[i]);
+        }
+
+        String path = sb.toString();
+        path.trim();
+        fileManager.openFile(path);
         System.out.println("Successfully opened file.");
     }
     private void onClose() throws Exception
     {
+        validateOpenedFile();
+
         PeopleXML_FileManager fileManager = PeopleXML_FileManager.getInstance();
         fileManager.closeFile();
         System.out.println("Successfully closed file.");
     }
     private void onSave() throws Exception
     {
+        validateOpenedFile();
+
         PeopleXML_FileManager fileManager = PeopleXML_FileManager.getInstance();
         fileManager.saveFile();
         System.out.println("Successfully saved file.");
     }
     private void onSaveAs() throws Exception
     {
-        Scanner input = new Scanner( System.in );
-        System.out.println("Enter file location: ");
-        String filePath = input.nextLine();
-
+        validateOpenedFile();
         PeopleXML_FileManager fileManager = PeopleXML_FileManager.getInstance();
-        fileManager.saveAsFile(filePath);
+
+        StringBuilder sb = new StringBuilder();
+        for (int i = 1; i < command.length; i++) {
+            if (!sb.toString().isEmpty())
+                sb.append(" ");
+            sb.append(command[i]);
+        }
+
+        String path = sb.toString();
+        path.trim();
+
+        fileManager.saveAsFile(path);
         System.out.println("Successfully saved file.");
     }
     private void onHelp()
@@ -154,22 +164,11 @@ public class XML_ParserMenuChoiceHandler
                 System.out.println("\t" + menuItem.getName() + " - " + menuItem.getDescription());
         }
     }
-    private void onToMainMenu()
-    {
-       // don't need to do anything
-    }
-    private void onFileOperations() throws Exception
-    {
-        XML_ParserFileOperationsMenuInitializer menuInitializer = new XML_ParserFileOperationsMenuInitializer();
-        menuInitializer.Initialize();
-    }
-    private void onXMLOperations() throws Exception
-    {
-        XML_ParserXMLOperationsMenuInitializer menuInitializer = new XML_ParserXMLOperationsMenuInitializer();
-        menuInitializer.Initialize();
-    }
+
     private void onPrint() throws Exception
     {
+        validateOpenedFile();
+
         PeopleXML_FileManager fileManager = PeopleXML_FileManager.getInstance();
         XMLConsolePrinter printer = new XMLConsolePrinter();
         printer.print(fileManager.getNode());
@@ -177,15 +176,13 @@ public class XML_ParserMenuChoiceHandler
 
     private void onSelectXML() throws Exception
     {
+        validateOpenedFile();
+
         PeopleXML_FileManager fileManager = PeopleXML_FileManager.getInstance();
         XML_Manager xmlManager = new XML_Manager(fileManager.getNode());
 
-        Scanner input = new Scanner( System.in );
-        System.out.println("Enter ID: ");
-        String id = input.nextLine();
-
-        System.out.println("Enter key: ");
-        String key = input.nextLine();
+        String id = command[1];
+        String key = command[2];
         XML_ElementsTypes keyType = XML_ElementsTypes.valueOf(key);
 
         XMLConsoleTextPrinter xmlConsoleTextPrinter = new XMLConsoleTextPrinter();
@@ -193,97 +190,88 @@ public class XML_ParserMenuChoiceHandler
     }
     private void onChildrenDescendant() throws Exception
     {
+        validateOpenedFile();
+
         PeopleXML_FileManager fileManager = PeopleXML_FileManager.getInstance();
         XML_Manager xmlManager = new XML_Manager(fileManager.getNode());
 
-        Scanner input = new Scanner( System.in );
-        System.out.println("Enter ID: ");
-        String id = input.nextLine();
-
-        System.out.println("Enter index: ");
-        int index = input.nextInt();
+        String id = command[1];
+        int index = Integer.parseInt(command[2]);
 
         XMLConsoleTextPrinter xmlConsoleTextPrinter = new XMLConsoleTextPrinter();
         xmlConsoleTextPrinter.print(xmlManager.getChild(id, index));
     }
     private void onDelete() throws Exception
     {
+        validateOpenedFile();
+
         PeopleXML_FileManager fileManager = PeopleXML_FileManager.getInstance();
         XML_Manager xmlManager = new XML_Manager(fileManager.getNode());
 
-        Scanner input = new Scanner( System.in );
-        System.out.println("Enter ID: ");
-        String id = input.nextLine();
-
-        System.out.println("Enter key: ");
-        String key = input.nextLine();
+        String id = command[1];
+        String key = command[2];
         XML_ElementsTypes keyType = XML_ElementsTypes.valueOf(key);
-
         xmlManager.delete(id, keyType);
         System.out.println("Successfully deleted element.");
     }
 
     private void onText() throws Exception
     {
+        validateOpenedFile();
+
         PeopleXML_FileManager fileManager = PeopleXML_FileManager.getInstance();
         XML_Manager xmlManager = new XML_Manager(fileManager.getNode());
-
-        Scanner input = new Scanner( System.in );
-        System.out.println("Enter ID: ");
-        String id = input.nextLine();
-
+        String id = command[1];
         xmlManager.getElementDescription(id);
     }
 
     private void onNewChild() throws Exception
     {
+        validateOpenedFile();
+
         PeopleXML_FileManager fileManager = PeopleXML_FileManager.getInstance();
         XML_Manager xmlManager = new XML_Manager(fileManager.getNode());
-
-        Scanner input = new Scanner( System.in );
-        System.out.println("Enter ID: ");
-        String id = input.nextLine();
-
+        String id = command[1];
         xmlManager.addChild(id, XML_ElementsTypes.person);
         System.out.println("Successfully added element.");
     }
 
     private void onChildren() throws Exception
     {
+        validateOpenedFile();
+
         PeopleXML_FileManager fileManager = PeopleXML_FileManager.getInstance();
         XML_Manager xmlManager = new XML_Manager(fileManager.getNode());
-
-        Scanner input = new Scanner( System.in );
-        System.out.println("Enter ID: ");
-        String id = input.nextLine();
-
+        String id = command[1];
         xmlManager.getElementDescription(id);
     }
     private void onSet() throws Exception
     {
+        validateOpenedFile();
+
         PeopleXML_FileManager fileManager = PeopleXML_FileManager.getInstance();
         PersonAttributeConsoleSetter setter = new PersonAttributeConsoleSetter(fileManager.getNode());
-
-        Scanner input = new Scanner( System.in );
-        System.out.println("Enter ID: ");
-        String id = input.nextLine();
-
-        System.out.println("Enter key: (name, address)");
-        String key = input.nextLine();
+        String id = command[1];
+        String key = command[2];
         XML_ElementsTypes keyType = XML_ElementsTypes.valueOf(key);
-
         setter.SetAttribute(id, keyType);
+
+        System.out.println("Successfully set element " + key);
     }
 
     private void onXPath() throws Exception
     {
+        validateOpenedFile();
+
         PeopleXML_FileManager fileManager = PeopleXML_FileManager.getInstance();
-
-        Scanner input = new Scanner( System.in );
-        System.out.println("Enter XPath: ");
-        String xpath = input.nextLine();
-
+        String xpath = command[1];
         PersonXPathQueriesExecutor queriesExecutor = new PersonXPathQueriesExecutor(fileManager.getNode());
         queriesExecutor.executeQuery(xpath);
+    }
+
+    private void validateOpenedFile() throws Exception
+    {
+        if (!PeopleXML_FileManager.getInstance().isFileOpen())
+            throw new Exception("There isn't opened XML file.");
     }
 }

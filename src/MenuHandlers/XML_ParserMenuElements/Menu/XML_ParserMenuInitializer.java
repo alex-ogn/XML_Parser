@@ -1,5 +1,7 @@
-package MenuHandlers.XML_ParserMenuElements;
+package MenuHandlers.XML_ParserMenuElements.Menu;
 import MenuHandlers.BaseMenu.Menu;
+import MenuHandlers.XML_ParserMenuElements.XML_ParserMenuItems;
+
 import java.util.ArrayList;
 
 public abstract class XML_ParserMenuInitializer {
@@ -13,7 +15,7 @@ public abstract class XML_ParserMenuInitializer {
     public void Initialize()
     {
         setMenuItmens(menuItmens);
-        Menu menu = new XML_ParserMenu(menuItmens);
+        XML_ParserMenu menu = new XML_ParserMenu(menuItmens);
        do
         {
             try {

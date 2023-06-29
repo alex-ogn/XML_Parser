@@ -1,4 +1,7 @@
-package MenuHandlers.XML_ParserMenuElements;
+package MenuHandlers.XML_ParserMenuElements.Menu;
+
+import MenuHandlers.XML_ParserMenuElements.XML_ParserMenuItems;
+
 import java.util.ArrayList;
 
 public class XML_ParserFileOperationsMenuInitializer extends XML_ParserMenuInitializer

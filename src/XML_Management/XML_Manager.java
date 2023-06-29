@@ -139,6 +139,8 @@ public class XML_Manager
     {
         List<Node> list =  baseMiddleNode.getValue();
 
+        Node indexChild = null;
+
         for (int i = 0; i < list.size(); i++)
         {
             Node node = list.get(i);
@@ -152,12 +154,37 @@ public class XML_Manager
             if (!(node instanceof BaseMiddleNode))
                 throw new Exception("The element does not support key element.");
 
-            BaseMiddleNode baseMiddleNodeChild = (BaseMiddleNode)node;
-            Node childnode = baseMiddleNodeChild.getValue().get(number);
-
-            return childnode;
+            indexChild =  getChild(node, number, 0);
+            if (indexChild == null)
+                throw new Exception("Element does not exist.");
         }
 
-        throw new Exception("Element with id " + id + " does not exist.");
+        if (indexChild == null)
+            throw new Exception("Element does not exist.");
+
+        return indexChild;
+
+    }
+
+    private Node getChild(Node node, int number, int currentNumber) throws Exception
+    {
+        Node indexChild = null;
+
+        if (number == currentNumber)
+            return node;
+
+        if (node instanceof BaseMiddleNode)
+        {
+            BaseMiddleNode baseMiddleNodeChild = (BaseMiddleNode)node;
+
+            for (Node child:
+                    baseMiddleNodeChild.getValue()) {
+                indexChild =  getChild(child, number, currentNumber + 1);
+                if (indexChild != null)
+                    break;
+            }
+        }
+
+        return indexChild;
     }
 }
